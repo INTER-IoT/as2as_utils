@@ -1,0 +1,21 @@
+{
+  "name": "node-red-PCS",
+  "version": "0.0.1",
+  "description": "Provides information about the port calls in the ports managed by the Valencia Port Authority: Valencia, Gandia and Sagunto",
+  "keywords": [
+    "node-red",
+	"pcs"
+  ],
+  "node-red": {
+    "nodes": {
+	  "pcs-portcall": "pcs-portcall/pcs-portcall.js",
+	  "pcs-search": "pcs-search/pcs-search.js"
+    }
+  },
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0",
+    "xmldom": "^0.1.27",
+    "xml2json": "^0.11.0",
+	"dateformat": "^2.0.0"
+  }
+}

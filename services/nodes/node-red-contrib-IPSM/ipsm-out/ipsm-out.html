@@ -1,0 +1,42 @@
+<script type="text/javascript">
+    RED.nodes.registerType('ipsm-out',{
+        category: 'IPSM',
+        color: '#A6BBCF',
+        defaults: {
+            name: {value:""},
+            server: {value:"", type:"kafka-broker", required: true},
+            topic: {value:"", required: true}
+        },
+        inputs:0,
+        outputs:1,
+        icon: "arrow-in.png",
+        align: "left",
+        label: function() {
+            return this.name||"IPSM out";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="ipsm-out">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-server"><i class="icon-tag"></i>Server</label>
+        <input id="node-input-server" placeholder="Server">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-topic"><i class="icon-tag"></i>Topic(</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+</script>
+
+<<script type="text/x-red" data-help-name="ipsm-out">
+    <p>A node consuming translated RDF message.</p>
+    <p><b>Name</b>  <i>Custom node name</i></p>
+    <p><b>Broker</b>  <i>Configuration of Kafka Broker</i></p>
+    <p><b>Topic(s)</b> <i>The topic(s) from which messages should be consumed (comma separated)</i></p>
+</script>

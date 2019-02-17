@@ -1,0 +1,62 @@
+<script type="text/javascript">
+    RED.nodes.registerType('output',{
+        category: 'DocRaid',
+        color: '#006600',
+        defaults: {
+            name: {value:""},
+            clientUrl: {value:""},
+            username: {value:""},
+            password: {value:""},
+            filename: {value:""}
+        },
+        inputs:1,
+        outputs:0,
+        icon: "file.png",
+        label: function() {
+            return this.name||"output";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="output">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-clientUrl"><i class="icon-tag"></i> Client URL</label>
+        <input type="text" id="node-input-clientUrl" placeholder="Client URL">
+    </div>
+    <div class="form-row">
+        <label for="node-input-username"><i class="icon-tag"></i> Username</label>
+        <input type="text" id="node-input-username" placeholder="Username">
+    </div>
+    <div class="form-row">
+        <label for="node-input-password"><i class="icon-tag"></i> Password</label>
+        <input type="password" id="node-input-password" placeholder="Password">
+    </div>
+    <div class="form-row">
+        <label for="node-input-filename"><i class="icon-tag"></i> Filename</label>
+        <input type="text" id="node-input-filename" placeholder="Filename">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="output">
+<p>Connects to DocRaid and write a file in the workspace.</p>
+
+<h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type">string</span>
+        </dt>
+        <dd> The content of the file that we want to write in our workspace. </dd>
+    </dl>
+
+<h3>Details</h3>
+   <p>
+Each message payload will write the file in the workspace.
+If there is an existing file, then the file will be overwritten.
+<<br><br>
+With the given <code>config.filename</code> and the <code>msg.payload</code> you define what file type it will have.
+   </p>
+</script>

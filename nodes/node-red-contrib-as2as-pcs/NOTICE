@@ -1,0 +1,44 @@
+INTER-IoT Interoperability of Heterogeneous IoT Platforms
+INTER-IoT Parent Pom
+
+This project has received funding from the European Union's Horizon 2020 
+research and innovation programme under grant agreement No 687283. 
+
+Copyright 2016-2018 Universitat Politècnica de València
+
+Copyright 2016-2018 Università della Calabria
+
+Copyright 2016-2018 Prodevelop, SL
+
+Copyright 2016-2018 Technische Universiteit Eindhoven
+
+Copyright 2016-2018 Fundación de la Comunidad Valenciana para la 
+Investigación, Promoción y Estudios Comerciales de Valenciaport
+
+Copyright 2016-2018 Rinicom Ltd
+
+Copyright 2016-2018 Association pour le développement de la formation 
+professionnelle dans le transport
+
+Copyright 2016-2018 Noatum Ports Valenciana, S.A.U.
+
+Copyright 2016-2018 XLAB razvoj programske opreme in svetovanje d.o.o.
+
+Copyright 2016-2018 Systems Research Institute Polish Academy of Sciences
+
+Copyright 2016-2018 Azienda Sanitaria Locale TO5
+
+Copyright 2016-2018 Alessandro Bassi Consulting SARL
+
+Copyright 2016-2018 Neways Technologies B.V.
+
+
+
+I. Used Software
+
+This product uses the following software with corresponding licenses:
+
+xml2json:0.11.2 (https://www.npmjs.com/package/xml2json) distributed under MIT
+xmlhttprequest:1.8.0 (https://www.npmjs.com/package/xmlhttprequest) distributed under MIT
+xmldom:0.1.27 (https://www.npmjs.com/package/xmldom) distributed under MIT
+dateformat:2.2.0 (https://www.npmjs.com/package/dateformat) distributed under MIT

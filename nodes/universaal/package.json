@@ -1,0 +1,33 @@
+{
+  "name": "universaaliot",
+  "version": "1.0.0",
+  "description": "nodes for universAAL IoT platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "universAAL"
+  ],
+  "author": "SATRD",
+  "license": "Apache-2.0",
+  "node-red": {
+    "nodes": {
+      "create-space": "create-space/create-space.js",
+      "create-publisher": "create-publisher/create-publisher.js",
+      "delete-publisher": "delete-publisher/delete-publisher.js",
+      "create-caller": "create-caller/create-caller.js",
+      "create-subscriber": "create-subscriber/create-subscriber.js",
+      "delete-subscriber": "delete-subscriber/delete-subscriber.js",
+      "call-caller": "call-caller/call-caller.js",
+      "get-publishers": "get-publishers/get-publishers.js",
+      "get-subscribers": "get-subscribers/get-subscribers.js",
+      "insert-data": "insert-data/insert-data.js",
+      "universaal-server": "universaal-server/universaal-server.js"
+    }
+  },
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
+}

@@ -1,0 +1,49 @@
+<script type="text/x-red" data-template-name="proton-get-definitions">
+ <div class="form-row">
+    <label for="node-input-protonConfig"><i class="icon-bookmark"></i> Config</label>
+    <input type="text" id="node-input-protonConfig">
+  </div>
+  <div class="form-row">
+    <label for="node-input-reqtype"><i class="icon-bookmark"></i> Type</label>
+    <select id="node-input-reqtype">
+      <option value="all">All</option>
+      <option value="single">Single</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label for="node-input-defname"><i class="icon-bookmark"></i> Definition Name</label>
+    <input type="text" id="node-input-defname">
+  </div>
+</script>
+
+
+
+<script type="text/javascript">
+  /*  global RED */
+  RED.nodes.registerType('proton-get-definitions', {
+    category: 'proton',
+    defaults: {
+      protonConfig: {
+        value: '',
+        required: true,
+        type: 'proton-config',
+      },
+      reqtype: {
+        value: 'all',
+        required: true,
+      },
+      defname: {
+        value: '',
+        required: false
+      }
+    },
+    label: function label() {
+      const name = RED.nodes.node(this.protonConfig) ? RED.nodes.node(this.protonConfig).name : '';
+      return `${name}: GET ${this.reqtype==='all' ? 'ALL' : this.defname} definition`;
+    },
+    inputs: 1,
+    outputs: 1,
+    color: '#a78ccc',
+    icon: 'proton.png',
+  });
+</script>

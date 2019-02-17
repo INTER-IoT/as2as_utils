@@ -1,0 +1,46 @@
+<script type="text/x-red" data-template-name="position-config">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="icon-bookmark"></i> Name</label>
+        <input type="text" id="node-config-input-name"> <br/>
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-file"><i class="icon-bookmark"></i> File Path</label>
+        <input type="text" id="node-config-input-file">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-uuid"><i class="icon-bookmark"></i> UUID</label>
+        <input type="text" id="node-config-input-uuid" disabled>
+    </div>
+</script>
+
+
+
+<script type="text/javascript">
+  /*  global RED */
+  RED.nodes.registerType('position-config', {
+    category: 'config',
+    defaults: {
+      name: {
+        value: 'Simu1',
+        required: true,
+      },
+      file: {
+        value: '',
+        required: true,
+      },
+      uuid: {
+        value: 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+          const r = Math.random() * 16 | 0; // eslint-disable-line no-bitwise
+          // eslint-disable-next-line no-bitwise, no-mixed-operators
+          const v = c === 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+        }),
+        required: true,
+      },
+    },
+    label: function label() {
+      return `${this.name}`;
+    },
+    icon: 'position.png',
+  });
+</script>

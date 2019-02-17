@@ -1,0 +1,77 @@
+<script type="text/x-red" data-template-name="insert-influxdb">
+    <div class="form-row">
+        <label for="node-input-server"><i class="icon-tag"></i> Server</label>
+        <input type="text" id="node-input-server" placeholder="Server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-db"><i class="icon-tag"></i> Database</label>
+        <input type="text" id="node-input-db" placeholder="Database">
+    </div>  
+    <div class="form-row">
+        <label for="node-input-table"><i class="icon-tag"></i> Table</label>
+        <input type="text" id="node-input-table" placeholder="Table">
+    </div>  
+    <div class="form-row">
+        <label for="node-input-platformId"><i class="icon-tag"></i> Platform ID</label>
+        <input type="text" id="node-input-platformId" placeholder="Platform ID">
+    </div>
+    <div class="form-row">
+        <label for="node-input-device"><i class="icon-tag"></i> Device</label>
+        <input type="text" id="node-input-device" placeholder="Device">
+    </div>
+    <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-setobservation"  style="display:inline-block; width:auto; vertical-align:top;">
+        <label for="node-input-setobservation" style="width:70%;"><span>Enable manual observation input</span></label>
+    </div>
+    <div class="form-row" id="node-set-observation">
+        <label for="node-input-observation"><i class="icon-tag"></i> Observation</label>
+        <input type="text" id="node-input-observation" placeholder="Observation">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="insert-influxdb">
+    <p>Inserts data in an InfluxDB database</p>
+    <h3>Inputs</h3>
+    <h3>Outputs</h3>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('insert-influxdb',{
+        category: 'influxdb-api',
+        color: '#c2daf1',
+        defaults: {
+            name: {value:""},
+            db: {value:"", required: true},
+            table: {value:"", required: true},
+            platformId: {value:"", required: true},
+            device: {value:"", required: true},
+            server: {value:"http://158.42.33.15:8086", type:"influxdb-server", required: true},
+            observation: {value:""},
+            setobservation: function(){
+                return $('#node-input-setobservation').is(":checked");
+            }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "interiot.png",
+        label: function() {
+            return this.name||'Insert into InfluxDB';
+        },
+        oneditprepare: function(){
+            var setobservation = function () {
+                if ($('#node-input-setobservation').is(":checked")) {
+                    $("#node-set-observation").show();
+                } else {
+                    $("#node-set-observation").hide();
+                }
+            };
+            $("#node-input-setobservation").change(function () { setobservation(); });
+            setobservation();
+        }
+    });
+</script>

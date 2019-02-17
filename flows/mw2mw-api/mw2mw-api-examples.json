@@ -1,0 +1,422 @@
+[
+    {
+        "id": "1061cd57.320073",
+        "type": "tab",
+        "label": "MW2MW API",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "5ad64096.244238",
+        "type": "get-clients",
+        "z": "1061cd57.320073",
+        "name": "",
+        "server": "14cbc976.067957",
+        "clientID": "myclient",
+        "x": 410,
+        "y": 240,
+        "wires": [
+            [
+                "24dd95c.b79eaea"
+            ]
+        ]
+    },
+    {
+        "id": "fc7824f1.3a884",
+        "type": "inject",
+        "z": "1061cd57.320073",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 180,
+        "y": 240,
+        "wires": [
+            [
+                "5ad64096.244238"
+            ]
+        ]
+    },
+    {
+        "id": "f787b9c0.3be3d8",
+        "type": "debug",
+        "z": "1061cd57.320073",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 890,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "24dd95c.b79eaea",
+        "type": "json",
+        "z": "1061cd57.320073",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 240,
+        "wires": [
+            [
+                "f787b9c0.3be3d8"
+            ]
+        ]
+    },
+    {
+        "id": "b6f9c784.29e1f8",
+        "type": "inject",
+        "z": "1061cd57.320073",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 180,
+        "y": 320,
+        "wires": [
+            [
+                "afd3f1e8.4ae3"
+            ]
+        ]
+    },
+    {
+        "id": "3fee197.c9d5166",
+        "type": "debug",
+        "z": "1061cd57.320073",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 890,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "81a9146d.946f78",
+        "type": "json",
+        "z": "1061cd57.320073",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 320,
+        "wires": [
+            [
+                "3fee197.c9d5166"
+            ]
+        ]
+    },
+    {
+        "id": "afd3f1e8.4ae3",
+        "type": "get-platforms",
+        "z": "1061cd57.320073",
+        "name": "",
+        "server": "14cbc976.067957",
+        "clientID": "myclient",
+        "x": 420,
+        "y": 320,
+        "wires": [
+            [
+                "81a9146d.946f78"
+            ]
+        ]
+    },
+    {
+        "id": "dfbaee2f.e03d58",
+        "type": "inject",
+        "z": "1061cd57.320073",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 180,
+        "y": 400,
+        "wires": [
+            [
+                "5cdb3979.7f7478"
+            ]
+        ]
+    },
+    {
+        "id": "f2e32a7f.63bac",
+        "type": "debug",
+        "z": "1061cd57.320073",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 890,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "ec50e0de.fa12c",
+        "type": "json",
+        "z": "1061cd57.320073",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 400,
+        "wires": [
+            [
+                "f2e32a7f.63bac"
+            ]
+        ]
+    },
+    {
+        "id": "5cdb3979.7f7478",
+        "type": "get-devices",
+        "z": "1061cd57.320073",
+        "name": "",
+        "server": "14cbc976.067957",
+        "clientID": "myclient",
+        "platformID": "http://inter-iot.eu/platforms/uaal",
+        "x": 410,
+        "y": 400,
+        "wires": [
+            [
+                "ec50e0de.fa12c"
+            ]
+        ]
+    },
+    {
+        "id": "9243c4cd.d4154",
+        "type": "inject",
+        "z": "1061cd57.320073",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "275d5dff.31c3ca"
+            ]
+        ]
+    },
+    {
+        "id": "c2decfb4.358148",
+        "type": "debug",
+        "z": "1061cd57.320073",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 890,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "481d9620.94e868",
+        "type": "json",
+        "z": "1061cd57.320073",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 180,
+        "wires": [
+            [
+                "c2decfb4.358148"
+            ]
+        ]
+    },
+    {
+        "id": "275d5dff.31c3ca",
+        "type": "unregister-client",
+        "z": "1061cd57.320073",
+        "name": "",
+        "server": "14cbc976.067957",
+        "clientID": "myclient",
+        "x": 430,
+        "y": 180,
+        "wires": [
+            [
+                "481d9620.94e868"
+            ]
+        ]
+    },
+    {
+        "id": "3dc440c9.33e97",
+        "type": "register-client",
+        "z": "1061cd57.320073",
+        "name": "",
+        "server": "14cbc976.067957",
+        "clientID": "myclient",
+        "clientId": "string",
+        "callbackUrl": "string",
+        "receivingCapacity": 0,
+        "responseDelivery": "SERVER_PUSH",
+        "x": 440,
+        "y": 120,
+        "wires": [
+            [
+                "fba08dab.9d72f"
+            ]
+        ]
+    },
+    {
+        "id": "3d9bf8c1.ebeb3",
+        "type": "inject",
+        "z": "1061cd57.320073",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 180,
+        "y": 120,
+        "wires": [
+            [
+                "3dc440c9.33e97"
+            ]
+        ]
+    },
+    {
+        "id": "59d286a6.5b1b8",
+        "type": "debug",
+        "z": "1061cd57.320073",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 890,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "fba08dab.9d72f",
+        "type": "json",
+        "z": "1061cd57.320073",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 120,
+        "wires": [
+            [
+                "59d286a6.5b1b8"
+            ]
+        ]
+    },
+    {
+        "id": "4bb1aed0.bf0508",
+        "type": "subscribe-client",
+        "z": "1061cd57.320073",
+        "name": "",
+        "server": "14cbc976.067957",
+        "clientID": "myclient",
+        "deviceIds": "http://ontology.universAAL.org/InterIoT.owl#sensor99761296A000",
+        "x": 440,
+        "y": 480,
+        "wires": [
+            [
+                "e7097d0.c635f8"
+            ]
+        ]
+    },
+    {
+        "id": "ae45f486.677958",
+        "type": "inject",
+        "z": "1061cd57.320073",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 180,
+        "y": 480,
+        "wires": [
+            [
+                "4bb1aed0.bf0508"
+            ]
+        ]
+    },
+    {
+        "id": "b21f26.84bde8d8",
+        "type": "debug",
+        "z": "1061cd57.320073",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 890,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "e7097d0.c635f8",
+        "type": "json",
+        "z": "1061cd57.320073",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 480,
+        "wires": [
+            [
+                "b21f26.84bde8d8"
+            ]
+        ]
+    },
+    {
+        "id": "1321c1d0.72805e",
+        "type": "comment",
+        "z": "1061cd57.320073",
+        "name": "MW2MW API methods",
+        "info": "",
+        "x": 200,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "14cbc976.067957",
+        "type": "mw2mw-server",
+        "z": "",
+        "host": "158.42.188.129",
+        "port": "8080"
+    }
+]

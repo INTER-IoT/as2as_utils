@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    RED.nodes.registerType('ipsm-inject-rdf',{
+        category: 'IPSM',
+        color: '#DAC4B4',
+        defaults: {
+            name: {value:""},
+            msg: {value:"", required: true}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "envelope.png",
+        label: function() {
+            return this.name||"ipsm-inject-rdf";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="ipsm-inject-rdf">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-msg"><i class="icon-tag"></i> RDF message</label>
+        <textarea type="text" rows=40 style="width:70%;" id="node-input-msg" placeholder="Msg"></textarea>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ipsm-inject-rdf">
+    <p>A simple node that injects sample RDF message.</p>
+</script>

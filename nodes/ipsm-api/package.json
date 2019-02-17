@@ -1,0 +1,25 @@
+{
+  "name": "ipsm-api",
+  "version": "1.0.0",
+  "description": "Inter Platform Semantic Mediator API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "IPSM"
+  ],
+  "author": "SATRD",
+  "license": "Apache-2.0",
+  "node-red": {
+    "nodes": {
+      "get-alignments": "get-alignments/get-alignments.js",
+      "post-translation": "post-translation/post-translation.js",
+      "ipsm-server": "ipsm-server/ipsm-server.js"
+    }
+  },
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
+}

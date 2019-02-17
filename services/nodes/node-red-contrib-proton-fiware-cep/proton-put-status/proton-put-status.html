@@ -1,0 +1,49 @@
+<script type="text/x-red" data-template-name="proton-put-status">
+ <div class="form-row">
+    <label for="node-input-protonConfig"><i class="icon-bookmark"></i> Config</label>
+    <input type="text" id="node-input-protonConfig">
+  </div>
+  <div class="form-row">
+    <label for="node-input-action"><i class="icon-bookmark"></i> Type</label>
+    <select id="node-input-action">
+      <option value="start">Start</option>
+      <option value="stop">Stop</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label for="node-input-insname"><i class="icon-bookmark"></i> Definition Name</label>
+    <input type="text" id="node-input-insname">
+  </div>
+</script>
+
+
+
+<script type="text/javascript">
+  /*  global RED */
+  RED.nodes.registerType('proton-put-status', {
+    category: 'proton',
+    defaults: {
+      protonConfig: {
+        value: '',
+        required: true,
+        type: 'proton-config',
+      },
+      action: {
+        value: 'start',
+        required: true,
+      },
+      insname: {
+        value: '/ProtonOnWebServer',
+        required: false
+      }
+    },
+    label: function label() {
+      const name = RED.nodes.node(this.protonConfig) ? RED.nodes.node(this.protonConfig).name : '';
+      return `INSTANCE ${this.insname} ${this.action}`;
+    },
+    inputs: 1,
+    outputs: 1,
+    color: '#a78ccc',
+    icon: 'proton.png',
+  });
+</script>

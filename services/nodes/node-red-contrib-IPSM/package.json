@@ -1,0 +1,20 @@
+    {
+      "name": "node-red-contrib-IPSM",
+      "version": "0.0.1",
+      "description": "",
+      "keywords": [
+        "node-red"
+      ],
+      "node-red": {
+        "nodes": {
+          "ipsm-config": "ipsm-config/ipsm-config.js",
+          "ipsm-inject-rdf": "ipsm-inject-rdf/ipsm-inject-rdf.js",
+          "ipsm-in": "ipsm-in/ipsm-in.js",
+          "ipsm-out": "ipsm-out/ipsm-out.js"
+        }
+      },
+      "dependencies": {
+          "no-kafka": ">=3.1.4"
+      }
+    }
+

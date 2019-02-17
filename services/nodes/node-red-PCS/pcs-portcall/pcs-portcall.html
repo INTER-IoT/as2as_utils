@@ -1,0 +1,26 @@
+<script type="text/x-red" data-template-name="pcs-portcall">
+	<div class="form-row">
+        <label for="node-input-portcallID"><i class="icon-tag"></i> Portcall ID</label>
+        <input type="text" id="node-input-portcallID" placeholder="Portcall ID">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="pcs-portcall">
+    <p>Get the port call data from PCS</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('pcs-portcall',{
+        category: 'pcs',
+        color: '#a6bbcf',
+        defaults: {
+            portcallID: {value:"1201700832"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "pcs_logo_32x32.png",
+        label: function() {
+            return this.name||" pcs-portcall";
+        }
+    });
+</script>

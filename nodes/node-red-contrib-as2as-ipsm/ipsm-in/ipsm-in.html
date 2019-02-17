@@ -1,0 +1,77 @@
+<!-- 
+  Copyright 2016-2018 Universitat Politècnica de València
+  Copyright 2016-2018 Università della Calabria
+  Copyright 2016-2018 Prodevelop, SL
+  Copyright 2016-2018 Technische Universiteit Eindhoven
+  Copyright 2016-2018 Fundación de la Comunidad Valenciana para la 
+  Investigación, Promoción y Estudios Comerciales de Valenciaport
+  Copyright 2016-2018 Rinicom Ltd
+  Copyright 2016-2018 Association pour le développement de la formation 
+  professionnelle dans le transport
+  Copyright 2016-2018 Noatum Ports Valenciana, S.A.U.
+  Copyright 2016-2018 XLAB razvoj programske opreme in svetovanje d.o.o.
+  Copyright 2016-2018 Systems Research Institute Polish Academy of Sciences
+  Copyright 2016-2018 Azienda Sanitaria Locale TO5
+  Copyright 2016-2018 Alessandro Bassi Consulting SARL
+  Copyright 2016-2018 Neways Technologies B.V.
+ 
+  See the NOTICE file distributed with this work for additional information
+  regarding copyright ownership.
+ 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+ 
+      http://www.apache.org/licenses/LICENSE-2.0
+ 
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+ 
+ / -->
+
+<script type="text/javascript">
+    RED.nodes.registerType('ipsm-in',{
+        category: 'IPSM',
+        color: '#E9967A',
+        defaults: {
+            name: {value:""},
+            server: {value:"", type:"kafka-broker", required: true},
+            topics: {value:"", required: true}
+        },
+        inputs:1,
+        outputs:0,
+        icon: "arrow-in.png",
+        align: "right",
+        label: function() {
+            return this.name||"IPSM in";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="ipsm-in">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-server"><i class="icon-tag"></i>Broker</label>
+        <input id="node-input-server" placeholder="Server">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-topics"><i class="icon-tag"></i>Topic(s)</label>
+        <input type="text" id="node-input-topics" placeholder="Topics">
+    </div>
+	
+</script>
+
+<<script type="text/x-red" data-help-name="ipsm-in">
+    <p>A node publishing RDF message to be translated.</p>
+    <p><b>Name</b>  <i>Custom node name</i></p>
+    <p><b>Broker</b>  <i>Configuration of Kafka broker</i></p>
+    <p><b>Topic(s)</b> <i>The topic(s) to which messages are published (comma separated)</i></p>
+</script>

@@ -1,0 +1,336 @@
+[
+    {
+      "id": "d9e637cc.41839",
+      "type": "tab",
+      "label": "Flow 5",
+      "disabled": false,
+      "info": ""
+    },
+    {
+      "id": "50426ba7.76a08c",
+      "type": "create-database-influxdb",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "db": "testnode",
+      "server": "2a803e73.d0775a",
+      "x": 550,
+      "y": 80,
+      "wires": [
+        [
+          "22e0c1d2.1229c6"
+        ]
+      ]
+    },
+    {
+      "id": "770d4ac4.a4ea14",
+      "type": "inject",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "topic": "",
+      "payload": "",
+      "payloadType": "date",
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "x": 260,
+      "y": 80,
+      "wires": [
+        [
+          "50426ba7.76a08c"
+        ]
+      ]
+    },
+    {
+      "id": "22e0c1d2.1229c6",
+      "type": "debug",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "false",
+      "x": 970,
+      "y": 80,
+      "wires": []
+    },
+    {
+      "id": "1bac29f1.f916ae",
+      "type": "delete-database-influxdb",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "db": "testnode",
+      "server": "2a803e73.d0775a",
+      "x": 550,
+      "y": 140,
+      "wires": [
+        [
+          "48bd27b1.527b5"
+        ]
+      ]
+    },
+    {
+      "id": "6fa60664.015ae8",
+      "type": "inject",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "topic": "",
+      "payload": "",
+      "payloadType": "date",
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "x": 260,
+      "y": 140,
+      "wires": [
+        [
+          "1bac29f1.f916ae"
+        ]
+      ]
+    },
+    {
+      "id": "48bd27b1.527b5",
+      "type": "debug",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "false",
+      "x": 970,
+      "y": 140,
+      "wires": []
+    },
+    {
+      "id": "47f20bc7.1e2864",
+      "type": "inject",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "topic": "",
+      "payload": "",
+      "payloadType": "date",
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "x": 260,
+      "y": 200,
+      "wires": [
+        [
+          "2df0ef56.0e27f8"
+        ]
+      ]
+    },
+    {
+      "id": "6d994cbe.4bd1fc",
+      "type": "debug",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "false",
+      "x": 970,
+      "y": 200,
+      "wires": []
+    },
+    {
+      "id": "2e40e0e5.e95898",
+      "type": "inject",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "topic": "",
+      "payload": "",
+      "payloadType": "date",
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "x": 260,
+      "y": 260,
+      "wires": [
+        [
+          "427635ae.d4fcbc"
+        ]
+      ]
+    },
+    {
+      "id": "e94bfac5.503b28",
+      "type": "debug",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "false",
+      "x": 970,
+      "y": 260,
+      "wires": []
+    },
+    {
+      "id": "2df0ef56.0e27f8",
+      "type": "select-query-influxdb",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "db": "testnode",
+      "table": "meas",
+      "query": "SELECT * from meas",
+      "server": "2a803e73.d0775a",
+      "x": 560,
+      "y": 200,
+      "wires": [
+        [
+          "6d994cbe.4bd1fc"
+        ]
+      ]
+    },
+    {
+      "id": "427635ae.d4fcbc",
+      "type": "delete-query-influxdb",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "db": "testnode",
+      "table": "meas",
+      "query": "DELETE FROM meas",
+      "server": "2a803e73.d0775a",
+      "x": 560,
+      "y": 260,
+      "wires": [
+        [
+          "e94bfac5.503b28"
+        ]
+      ]
+    },
+    {
+      "id": "a856eefe.f3815",
+      "type": "inject",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "topic": "",
+      "payload": "",
+      "payloadType": "date",
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "x": 260,
+      "y": 320,
+      "wires": [
+        [
+          "171adcb4.675503"
+        ]
+      ]
+    },
+    {
+      "id": "7bdcde85.7b0598",
+      "type": "debug",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "false",
+      "x": 970,
+      "y": 320,
+      "wires": []
+    },
+    {
+      "id": "171adcb4.675503",
+      "type": "insert-influxdb",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "db": "testnode",
+      "table": "meas",
+      "server": "2a803e73.d0775a",
+      "data": "{     \t\"platformId\": \"FIWARE\",      \t\"device\": \"termometro\",     \t\"observation\": {     \t\t\"@graph\": [{ \t\t        \"@graph\": [{ \t\t            \"@id\": \t\t              \"InterIoTMsg:meta308c3987-b69e-4672-890b-3f3d6229596d\", \t\t            \"@type\": [ \t\t              \"InterIoTMsg:meta\", \t\t              \"InterIoTMsg:Observation\" \t\t            ], \t\t            \"InterIoTMsg:conversationID\":\"conv85e0f5d2-cf65-4d23-84b1- ff1381ae01fc\", \t\t            \"InterIoTMsg:dateTimeStamp\": \"2017-05-08T13:48:19.428+02:00\", \t\t            \"InterIoTMsg:messageID\":\"msg204d0405-a6da-4054-a6db-96d20c413746\" \t\t          } \t\t        ], \t\t        \"@id\": \"InterIoTMsg:metadata\" \t\t      }, \t\t      { \t\t        \"@graph\": [ \t\t          { \t\t            \"@id\": \"_:b0\", \t\t            \"@type\": \"http://www.w3.org/2006/time#TimePosition\", \t\t            \"http://www.w3.org/2006/time#numericPosition\": { \t\t              \"@type\": \"xsd:decimal\", \t\t              \"@value\": \"1418143893015\" \t\t            } \t\t          }, \t\t          { \t\t            \"@id\": \"_:b3\", \t\t            \"@type\": \"owl:Restriction\", \t\t            \"owl:allValuesFrom\": { \t\t              \"@id\": \"http://ontology.universAAL.org/PersonalHealthDevice.owl#HeartRateSensor\" \t\t            }, \t\t            \"owl:onProperty\": {\"@id\": \"rdf:subject\"} \t\t          }, \t\t          { \t\t            \"@id\": \"ns1:hr\", \t\t            \"@type\": [ \t\t              \"http://www.w3.org/ns/sosa/Result\", \t\t              \"ns3:HeartRate\" \t\t            ], \t\t            \"InterIoT:GOIoTP#hasValue\": { \t\t              \"@type\": \"xsd:int\", \t\t              \"@value\": \"33\" \t\t            } \t\t          }, \t\t          { \t\t            \"@id\": \"urn:org.universAAL.middleware.context.rdf:ContextEvent#_:9e2aa729ac420ba3:182a\", \t\t            \"@type\": \"http://www.w3.org/ns/sosa/Observation\", \t\t            \"http://www.w3.org/ns/sosa/hasResult\": {\"@id\": \"ns1:hr\"}, \t\t            \"http://www.w3.org/ns/sosa/madeBySensor\": {\"@id\": \"ns1:hrs\"}, \t\t            \"http://www.w3.org/ns/sosa/phenomenonTime\": {\"@id\": \"_:b1\"} \t\t          } \t\t        ], \t\t        \"@id\": \"InterIoTMsg:payload\" \t\t      } \t\t    ], \t\t    \"@context\": { \t\t      \"ns\": \"http://ontology.universaal.org/PhThing.owl#\", \t\t      \"owl\": \"http://www.w3.org/2002/07/owl#\", \t\t      \"InterIoTMsg\": \"http://inter-iot.eu/message/\", \t\t      \"InterIoTInst\": \"http://inter-iot.eu/inst/\", \t\t      \"rdf\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\", \t\t      \"xsd\": \"http://www.w3.org/2001/XMLSchema#\", \t\t      \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\", \t\t      \"InterIoT\": \"http://inter-iot.eu/\", \t\t      \"ns2\": \"http://ontology.universaal.org/Measurement.owl#\", \t\t      \"ns1\": \"http://ontology.universAAL.org/SimpleHealthclient.owl#\", \t\t      \"ns4\": \"http://ontology.universAAL.org/Device.owl#\", \t\t      \"ns3\": \"http://ontology.universaal.org/HealthMeasurement.owl#\" \t\t    } \t\t}     }",
+      "setdata": true,
+      "x": 550,
+      "y": 320,
+      "wires": [
+        [
+          "7bdcde85.7b0598"
+        ]
+      ]
+    },
+    {
+      "id": "dde5c0cd.bddee8",
+      "type": "inject",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "topic": "",
+      "payload": "",
+      "payloadType": "date",
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "x": 260,
+      "y": 380,
+      "wires": [
+        [
+          "7feb9a63.500aa4"
+        ]
+      ]
+    },
+    {
+      "id": "e663180c.631cc8",
+      "type": "debug",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "false",
+      "x": 970,
+      "y": 380,
+      "wires": []
+    },
+    {
+      "id": "4f79e76d.99f008",
+      "type": "insert-influxdb",
+      "z": "d9e637cc.41839",
+      "name": "",
+      "db": "testnode",
+      "table": "meas",
+      "server": "2a803e73.d0775a",
+      "data": "{     \t\"platformId\": \"FIWARE\",      \t\"device\": \"termometro\",     \t\"observation\": {     \t\t\"@graph\": [{ \t\t        \"@graph\": [{ \t\t            \"@id\": \t\t              \"InterIoTMsg:meta308c3987-b69e-4672-890b-3f3d6229596d\", \t\t            \"@type\": [ \t\t              \"InterIoTMsg:meta\", \t\t              \"InterIoTMsg:Observation\" \t\t            ], \t\t            \"InterIoTMsg:conversationID\":\"conv85e0f5d2-cf65-4d23-84b1- ff1381ae01fc\", \t\t            \"InterIoTMsg:dateTimeStamp\": \"2017-05-08T13:48:19.428+02:00\", \t\t            \"InterIoTMsg:messageID\":\"msg204d0405-a6da-4054-a6db-96d20c413746\" \t\t          } \t\t        ], \t\t        \"@id\": \"InterIoTMsg:metadata\" \t\t      }, \t\t      { \t\t        \"@graph\": [ \t\t          { \t\t            \"@id\": \"_:b0\", \t\t            \"@type\": \"http://www.w3.org/2006/time#TimePosition\", \t\t            \"http://www.w3.org/2006/time#numericPosition\": { \t\t              \"@type\": \"xsd:decimal\", \t\t              \"@value\": \"1418143893015\" \t\t            } \t\t          }, \t\t          { \t\t            \"@id\": \"_:b3\", \t\t            \"@type\": \"owl:Restriction\", \t\t            \"owl:allValuesFrom\": { \t\t              \"@id\": \"http://ontology.universAAL.org/PersonalHealthDevice.owl#HeartRateSensor\" \t\t            }, \t\t            \"owl:onProperty\": {\"@id\": \"rdf:subject\"} \t\t          }, \t\t          { \t\t            \"@id\": \"ns1:hr\", \t\t            \"@type\": [ \t\t              \"http://www.w3.org/ns/sosa/Result\", \t\t              \"ns3:HeartRate\" \t\t            ], \t\t            \"InterIoT:GOIoTP#hasValue\": { \t\t              \"@type\": \"xsd:int\", \t\t              \"@value\": \"33\" \t\t            } \t\t          }, \t\t          { \t\t            \"@id\": \"urn:org.universAAL.middleware.context.rdf:ContextEvent#_:9e2aa729ac420ba3:182a\", \t\t            \"@type\": \"http://www.w3.org/ns/sosa/Observation\", \t\t            \"http://www.w3.org/ns/sosa/hasResult\": {\"@id\": \"ns1:hr\"}, \t\t            \"http://www.w3.org/ns/sosa/madeBySensor\": {\"@id\": \"ns1:hrs\"}, \t\t            \"http://www.w3.org/ns/sosa/phenomenonTime\": {\"@id\": \"_:b1\"} \t\t          } \t\t        ], \t\t        \"@id\": \"InterIoTMsg:payload\" \t\t      } \t\t    ], \t\t    \"@context\": { \t\t      \"ns\": \"http://ontology.universaal.org/PhThing.owl#\", \t\t      \"owl\": \"http://www.w3.org/2002/07/owl#\", \t\t      \"InterIoTMsg\": \"http://inter-iot.eu/message/\", \t\t      \"InterIoTInst\": \"http://inter-iot.eu/inst/\", \t\t      \"rdf\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\", \t\t      \"xsd\": \"http://www.w3.org/2001/XMLSchema#\", \t\t      \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\", \t\t      \"InterIoT\": \"http://inter-iot.eu/\", \t\t      \"ns2\": \"http://ontology.universaal.org/Measurement.owl#\", \t\t      \"ns1\": \"http://ontology.universAAL.org/SimpleHealthclient.owl#\", \t\t      \"ns4\": \"http://ontology.universAAL.org/Device.owl#\", \t\t      \"ns3\": \"http://ontology.universaal.org/HealthMeasurement.owl#\" \t\t    } \t\t}     }",
+      "setdata": true,
+      "x": 690,
+      "y": 380,
+      "wires": [
+        [
+          "e663180c.631cc8"
+        ]
+      ]
+    },
+    {
+      "id": "7feb9a63.500aa4",
+      "type": "function",
+      "z": "d9e637cc.41839",
+      "name": "Insert message",
+      "func": "msg.payload = {\n    \t\"platformId\": \"FIWARE\", \n    \t\"device\": \"termometro\",\n    \t\"observation\": {\n    \t\t\"@graph\": [{\n\t\t        \"@graph\": [{\n\t\t            \"@id\":\n\t\t              \"InterIoTMsg:meta308c3987-b69e-4672-890b-3f3d6229596d\",\n\t\t            \"@type\": [\n\t\t              \"InterIoTMsg:meta\",\n\t\t              \"InterIoTMsg:Observation\"\n\t\t            ],\n\t\t            \"InterIoTMsg:conversationID\":\"conv85e0f5d2-cf65-4d23-84b1- ff1381ae01fc\",\n\t\t            \"InterIoTMsg:dateTimeStamp\": \"2017-05-08T13:48:19.428+02:00\",\n\t\t            \"InterIoTMsg:messageID\":\"msg204d0405-a6da-4054-a6db-96d20c413746\"\n\t\t          }\n\t\t        ],\n\t\t        \"@id\": \"InterIoTMsg:metadata\"\n\t\t      },\n\t\t      {\n\t\t        \"@graph\": [\n\t\t          {\n\t\t            \"@id\": \"_:b0\",\n\t\t            \"@type\": \"http://www.w3.org/2006/time#TimePosition\",\n\t\t            \"http://www.w3.org/2006/time#numericPosition\": {\n\t\t              \"@type\": \"xsd:decimal\",\n\t\t              \"@value\": \"1418143893015\"\n\t\t            }\n\t\t          },\n\t\t          {\n\t\t            \"@id\": \"_:b3\",\n\t\t            \"@type\": \"owl:Restriction\",\n\t\t            \"owl:allValuesFrom\": {\n\t\t              \"@id\": \"http://ontology.universAAL.org/PersonalHealthDevice.owl#HeartRateSensor\"\n\t\t            },\n\t\t            \"owl:onProperty\": {\"@id\": \"rdf:subject\"}\n\t\t          },\n\t\t          {\n\t\t            \"@id\": \"ns1:hr\",\n\t\t            \"@type\": [\n\t\t              \"http://www.w3.org/ns/sosa/Result\",\n\t\t              \"ns3:HeartRate\"\n\t\t            ],\n\t\t            \"InterIoT:GOIoTP#hasValue\": {\n\t\t              \"@type\": \"xsd:int\",\n\t\t              \"@value\": \"33\"\n\t\t            }\n\t\t          },\n\t\t          {\n\t\t            \"@id\": \"urn:org.universAAL.middleware.context.rdf:ContextEvent#_:9e2aa729ac420ba3:182a\",\n\t\t            \"@type\": \"http://www.w3.org/ns/sosa/Observation\",\n\t\t            \"http://www.w3.org/ns/sosa/hasResult\": {\"@id\": \"ns1:hr\"},\n\t\t            \"http://www.w3.org/ns/sosa/madeBySensor\": {\"@id\": \"ns1:hrs\"},\n\t\t            \"http://www.w3.org/ns/sosa/phenomenonTime\": {\"@id\": \"_:b1\"}\n\t\t          }\n\t\t        ],\n\t\t        \"@id\": \"InterIoTMsg:payload\"\n\t\t      }\n\t\t    ],\n\t\t    \"@context\": {\n\t\t      \"ns\": \"http://ontology.universaal.org/PhThing.owl#\",\n\t\t      \"owl\": \"http://www.w3.org/2002/07/owl#\",\n\t\t      \"InterIoTMsg\": \"http://inter-iot.eu/message/\",\n\t\t      \"InterIoTInst\": \"http://inter-iot.eu/inst/\",\n\t\t      \"rdf\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\",\n\t\t      \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n\t\t      \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\",\n\t\t      \"InterIoT\": \"http://inter-iot.eu/\",\n\t\t      \"ns2\": \"http://ontology.universaal.org/Measurement.owl#\",\n\t\t      \"ns1\": \"http://ontology.universAAL.org/SimpleHealthclient.owl#\",\n\t\t      \"ns4\": \"http://ontology.universAAL.org/Device.owl#\",\n\t\t      \"ns3\": \"http://ontology.universaal.org/HealthMeasurement.owl#\"\n\t\t    }\n\t\t}\n    };\nreturn msg;",
+      "outputs": 1,
+      "noerr": 0,
+      "x": 460,
+      "y": 380,
+      "wires": [
+        [
+          "4f79e76d.99f008"
+        ]
+      ]
+    },
+    {
+      "id": "2a803e73.d0775a",
+      "type": "influxdb-server",
+      "z": "",
+      "host": "localhost",
+      "port": "4567"
+    }
+  ]

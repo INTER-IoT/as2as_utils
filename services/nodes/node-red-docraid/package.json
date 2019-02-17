@@ -1,0 +1,20 @@
+{
+  "name": "DocRaid-Node",
+  "version": "0.1.0",
+  "description": "DocRaid Anbindung für Node-red",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "webdav": "1.5.2"
+  },
+  "node-red" : {
+    "nodes": {
+      "input": "input.js",
+      "output": "output.js"
+    }
+  },
+  "author": "Sebastian Reinsch",
+  "license": ""
+}

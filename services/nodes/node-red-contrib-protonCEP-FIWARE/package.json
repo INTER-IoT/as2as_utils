@@ -1,0 +1,21 @@
+{
+  "name": "node-red-contrib-protonCEP-FIWARE",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [
+    "node-red"
+  ],
+  "node-red": {
+    "nodes": {
+      "proton-remote-server": "proton-remote-server/proton-remote-server.js",
+      "proton-get": "proton-get/proton-get.js",
+	  "proton-put": "proton-put/proton-put.js"
+    }
+  },
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "node-rest-client": "^2.0.1",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
+  }
+}

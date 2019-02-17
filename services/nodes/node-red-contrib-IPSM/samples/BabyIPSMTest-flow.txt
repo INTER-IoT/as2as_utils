@@ -1,0 +1,228 @@
+[
+    {
+        "id": "baa68d95.d2bc9",
+        "type": "tab",
+        "label": "Baby IPSM Test"
+    },
+    {
+        "id": "50f30cfd.f2c404",
+        "type": "kafka-broker",
+        "z": "",
+        "host": "grieg.ibspan.waw.pl",
+        "port": "9092",
+        "useSSL": true
+    },
+    {
+        "id": "4cc8e388.ee1044",
+        "type": "inject",
+        "z": "baa68d95.d2bc9",
+        "name": "whatever",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 181,
+        "y": 222,
+        "wires": [
+            [
+                "59382079.1887a"
+            ]
+        ]
+    },
+    {
+        "id": "59382079.1887a",
+        "type": "ipsm-inject-rdf",
+        "z": "baa68d95.d2bc9",
+        "name": "Sample RDF in ont1",
+        "msg": "<?xml version=\"1.0\"?>\n\n<!DOCTYPE rdf:RDF [\n    <!ENTITY owl \"http://www.w3.org/2002/07/owl#\" >\n    <!ENTITY xsd \"http://www.w3.org/2001/XMLSchema#\" >\n    <!ENTITY rdfs \"http://www.w3.org/2000/01/rdf-schema#\" >\n    <!ENTITY rdf \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" >\n    <!ENTITY base \"http://www.example.org/ontology1#\" >\n]>\n\n<rdf:RDF xmlns=\"http://www.example.org/ontology1#\"\n         xml:base=\"http://www.example.org/ontology1#\"\n         xmlns:iot-lite=\"http://purl.oclc.org/NET/UNIS/fiware/iot-lite#\"\n         xmlns:owl=\"http://www.w3.org/2002/07/owl#\"\n         xmlns:ns=\"http://creativecommons.org/ns#\"\n         xmlns:georss=\"http://www.georss.org/georss/\"\n         xmlns:xsd=\"http://www.w3.org/2001/XMLSchema#\"\n         xmlns:rdfs=\"http://www.w3.org/2000/01/rdf-schema#\"\n         xmlns:OrientDB=\"http://www.dewi.org/WDA.owl#OrientDB:\"\n         xmlns:ACS=\"http://www.dewi.org/ACS.owl#\"\n         xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n         xmlns:WDA=\"http://www.dewi.org/WDA.owl#\"\n         xmlns:terms=\"http://purl.org/dc/terms/\"\n         xmlns:xml=\"http://www.w3.org/XML/1998/namespace\"\n         xmlns:wgs84_pos=\"http://www.w3.org/2003/01/geo/wgs84_pos#\"\n         xmlns:DUL=\"http://www.loa-cnr.it/ontologies/DUL.owl#\"\n         xmlns:foaf=\"http://xmlns.com/foaf/0.1/\"\n         xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n\n\t<owl:NamedIndividual rdf:about=\"http://www.example.org/ontology1#NamedDevice11\">\n    \t<georss:point rdf:datatype=\"http://www.w3.org/2001/XMLSchema#string\">10.0 54.2</georss:point>\n    \t<hasDescription>Gratia Plena</hasDescription>\n    </owl:NamedIndividual>\n\n\t<owl:NamedIndividual rdf:about=\"http://www.example.org/ontology1#Dev11\">\n\t\t<rdfs:comment>Some comment</rdfs:comment>\n        <georss:point rdf:datatype=\"http://www.w3.org/2001/XMLSchema#string\">10.0 54.2</georss:point>\n        <hasDescription rdf:datatype=\"http://www.w3.org/2001/XMLSchema#string\">A written description of Dev1</hasDescription>\n\t</owl:NamedIndividual>\n\n\t<owl:NamedIndividual rdf:about=\"http://www.example.org/ontology1#Dev22\">\n\t    <hasDescription rdf:datatype=\"http://www.w3.org/2001/XMLSchema#string\">A written description of Dev2</hasDescription>\n\t\t<rdfs:comment>Some other comment</rdfs:comment>\n        <georss:point>30.0 33.2</georss:point>\n\t</owl:NamedIndividual>\n\n</rdf:RDF>",
+        "x": 447,
+        "y": 222,
+        "wires": [
+            [
+                "e0b1bad7.bb2308"
+            ]
+        ]
+    },
+    {
+        "id": "e0b1bad7.bb2308",
+        "type": "ipsm-in",
+        "z": "baa68d95.d2bc9",
+        "name": "",
+        "server": "50f30cfd.f2c404",
+        "topics": "i1",
+        "x": 647,
+        "y": 228,
+        "wires": []
+    },
+    {
+        "id": "7ef746f.31952b8",
+        "type": "ipsm-out",
+        "z": "baa68d95.d2bc9",
+        "name": "",
+        "server": "50f30cfd.f2c404",
+        "topic": "o1",
+        "x": 631,
+        "y": 320,
+        "wires": [
+            [
+                "c19dead8.fef4d"
+            ]
+        ]
+    },
+    {
+        "id": "c19dead8.fef4d",
+        "type": "debug",
+        "z": "baa68d95.d2bc9",
+        "name": "Translated RDF in ont4",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 937,
+        "y": 318,
+        "wires": []
+    },
+    {
+        "id": "a8f2301d.53a428",
+        "type": "inject",
+        "z": "baa68d95.d2bc9",
+        "name": "whatevver",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 173,
+        "y": 473,
+        "wires": [
+            [
+                "b685feb2.45f57"
+            ]
+        ]
+    },
+    {
+        "id": "b685feb2.45f57",
+        "type": "ipsm-inject-rdf",
+        "z": "baa68d95.d2bc9",
+        "name": "Sample RDF in ont2",
+        "msg": "<?xml version=\"1.0\"?>\n\n<!DOCTYPE rdf:RDF [\n    <!ENTITY owl \"http://www.w3.org/2002/07/owl#\" >\n    <!ENTITY xsd \"http://www.w3.org/2001/XMLSchema#\" >\n    <!ENTITY rdfs \"http://www.w3.org/2000/01/rdf-schema#\" >\n    <!ENTITY rdf \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" >\n    <!ENTITY base \"http://example.sripas.org/ontologies/port.owl#\" >\n]>\n\n<rdf:RDF xmlns=\"http://example.sripas.org/ontologies/port.owl#\"\n         xml:base=\"http://example.sripas.org/ontologies/port.owl#\"\n         xmlns:my_port=\"http://example.sripas.org/ontologies/port.owl#\"\n         xmlns:ont1=\"http://www.example.org/ontology1#\"\n         xmlns:iot-lite=\"http://purl.oclc.org/NET/UNIS/fiware/iot-lite#\"\n         xmlns:owl=\"http://www.w3.org/2002/07/owl#\"\n         xmlns:ns=\"http://creativecommons.org/ns#\"\n         xmlns:georss=\"http://www.georss.org/georss/\"\n         xmlns:xsd=\"http://www.w3.org/2001/XMLSchema#\"\n         xmlns:rdfs=\"http://www.w3.org/2000/01/rdf-schema#\"\n         xmlns:OrientDB=\"http://www.dewi.org/WDA.owl#OrientDB:\"\n         xmlns:ACS=\"http://www.dewi.org/ACS.owl#\"\n         xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n         xmlns:WDA=\"http://www.dewi.org/WDA.owl#\"\n         xmlns:terms=\"http://purl.org/dc/terms/\"\n         xmlns:xml=\"http://www.w3.org/XML/1998/namespace\"\n         xmlns:wgs84_pos=\"http://www.w3.org/2003/01/geo/wgs84_pos#\"\n         xmlns:DUL=\"http://www.loa-cnr.it/ontologies/DUL.owl#\"\n         xmlns:foaf=\"http://xmlns.com/foaf/0.1/\"\n         xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n\n\t<owl:NamedIndividual rdf:about=\"http://www.example.org/ontology1#Dev3\">\n\t\t<rdfs:comment>Some comment</rdfs:comment>\n\t\t<my_port:hasGPSlatitude>128.0</my_port:hasGPSlatitude>\n        <my_port:hasGPSlongitude>777.2</my_port:hasGPSlongitude>\n        <my_port:hasGPSError>2.5</my_port:hasGPSError>\n        <my_port:hasGPSSateliteNumber>5</my_port:hasGPSSateliteNumber>\n        <ont1:hasDescription rdf:datatype=\"http://www.w3.org/2001/XMLSchema#string\">A written description of Dev3</ont1:hasDescription>\n\t</owl:NamedIndividual>\n\n\t<owl:NamedIndividual rdf:about=\"http://www.example.org/ontology1#Dev4\">\n\t    <ont1:hasDescription rdf:datatype=\"http://www.w3.org/2001/XMLSchema#string\">A written description of Dev4</ont1:hasDescription>\n\t\t<rdfs:comment>Some other comment</rdfs:comment>\n        <!-- <my_port:hasGPSlatitude>30.0</my_port:hasGPSlatitude> -->\n        <my_port:hasGPSlongitude>60.0</my_port:hasGPSlongitude>\n        <my_port:hasGPSError>5</my_port:hasGPSError>\n        <my_port:hasGPSSateliteNumber>3</my_port:hasGPSSateliteNumber>\n\t</owl:NamedIndividual>\n\n</rdf:RDF>",
+        "x": 433,
+        "y": 471,
+        "wires": [
+            [
+                "fed49711.e359e"
+            ]
+        ]
+    },
+    {
+        "id": "fed49711.e359e",
+        "type": "ipsm-in",
+        "z": "baa68d95.d2bc9",
+        "name": "",
+        "server": "50f30cfd.f2c404",
+        "topics": "i2",
+        "x": 633,
+        "y": 469,
+        "wires": []
+    },
+    {
+        "id": "e72b8f0d.17e0b",
+        "type": "ipsm-out",
+        "z": "baa68d95.d2bc9",
+        "name": "",
+        "server": "50f30cfd.f2c404",
+        "topic": "o2",
+        "x": 629,
+        "y": 538,
+        "wires": [
+            [
+                "949b3122.3d8c28"
+            ]
+        ]
+    },
+    {
+        "id": "949b3122.3d8c28",
+        "type": "debug",
+        "z": "baa68d95.d2bc9",
+        "name": "Translated RDF in ont4",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 937,
+        "y": 537,
+        "wires": []
+    },
+    {
+        "id": "38069322.9450cc",
+        "type": "inject",
+        "z": "baa68d95.d2bc9",
+        "name": "whatever",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 165,
+        "y": 670,
+        "wires": [
+            [
+                "36e73d35.0b1d4a"
+            ]
+        ]
+    },
+    {
+        "id": "36e73d35.0b1d4a",
+        "type": "ipsm-inject-rdf",
+        "z": "baa68d95.d2bc9",
+        "name": "Sample RDF in ont3",
+        "msg": "<?xml version=\"1.0\"?>\n\n<!DOCTYPE rdf:RDF [\n    <!ENTITY owl \"http://www.w3.org/2002/07/owl#\" >\n    <!ENTITY xsd \"http://www.w3.org/2001/XMLSchema#\" >\n    <!ENTITY rdfs \"http://www.w3.org/2000/01/rdf-schema#\" >\n    <!ENTITY rdf \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" >\n    <!ENTITY base \"http://www.example.org/ontology1#\" >\n]>\n\n<rdf:RDF xmlns=\"http://www.example.org/ontology1#\"\n         xml:base=\"http://www.example.org/ontology1#\"\n         xmlns:iot-lite=\"http://purl.oclc.org/NET/UNIS/fiware/iot-lite#\"\n         xmlns:owl=\"http://www.w3.org/2002/07/owl#\"\n         xmlns:ont3=\"http://www.example.org/ontology3#\"\n         xmlns:ns=\"http://creativecommons.org/ns#\"\n         xmlns:georss=\"http://www.georss.org/georss/\"\n         xmlns:xsd=\"http://www.w3.org/2001/XMLSchema#\"\n         xmlns:rdfs=\"http://www.w3.org/2000/01/rdf-schema#\"\n         xmlns:OrientDB=\"http://www.dewi.org/WDA.owl#OrientDB:\"\n         xmlns:ACS=\"http://www.dewi.org/ACS.owl#\"\n         xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n         xmlns:WDA=\"http://www.dewi.org/WDA.owl#\"\n         xmlns:terms=\"http://purl.org/dc/terms/\"\n         xmlns:xml=\"http://www.w3.org/XML/1998/namespace\"\n         xmlns:wgs84_pos=\"http://www.w3.org/2003/01/geo/wgs84_pos#\"\n         xmlns:DUL=\"http://www.loa-cnr.it/ontologies/DUL.owl#\"\n         xmlns:foaf=\"http://xmlns.com/foaf/0.1/\"\n         xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n\n\t<owl:NamedIndividual rdf:about=\"http://www.example.org/ontology3#Dev5\">\n\t\t<rdfs:comment>A comment about device 5</rdfs:comment>\n\t\t<ont3:hasObservationPrecision rdf:datatype=\"http://www.w3.org/2001/XMLSchema#decimal\">10.0</ont3:hasObservationPrecision>\n\t\t<ont3:hasOwner rdf:resource=\"http://www.example.org/ontology1#JohnDoe\"/>\n\t\t<ont3:hasOwnerInstitution rdf:resource=\"http://www.example.org/ontology1#SRIPAS\"/>\n\t\t<ont3:hasFunction rdf:resource=\"http://www.example.org/ontology3#openCloseFunction\"/>\n        <ont3:hasFunction rdf:resource=\"http://www.example.org/ontology3#actuatingFunction\"/>\n\t</owl:NamedIndividual>\n\n\t<owl:NamedIndividual rdf:about=\"http://www.example.org/ontology3#Dev6\">\n    \t<rdfs:comment>A comment about device 6</rdfs:comment>\n    \t<ont3:hasObservationPrecision rdf:datatype=\"http://www.w3.org/2001/XMLSchema#decimal\">5.0</ont3:hasObservationPrecision>\n    \t<ont3:hasOwner rdf:resource=\"http://www.example.org/ontology1#MariaGratia\"/>\n    \t<ont3:hasOwnerInstitution rdf:resource=\"http://www.example.org/ontology3#SRIPAS\"/>\n    \t<ont3:hasFunction rdf:resource=\"http://www.example.org/ontology3#openCloseFunction\"/>\n        <ont3:hasFunction rdf:resource=\"http://www.example.org/ontology3#tagFunction\"/>\n    </owl:NamedIndividual>\n\n\t<owl:NamedIndividual rdf:about=\"http://www.example.org/ontology3#SRIPAS\">\n\t        <rdf:type rdf:resource=\"http://www.example.org/ontology3#Institution\"/>\n    \t\t<rdfs:comment>This is some institution</rdfs:comment>\n    </owl:NamedIndividual>\n</rdf:RDF>",
+        "x": 416,
+        "y": 674,
+        "wires": [
+            [
+                "8de9b884.e58158"
+            ]
+        ]
+    },
+    {
+        "id": "8de9b884.e58158",
+        "type": "ipsm-in",
+        "z": "baa68d95.d2bc9",
+        "name": "",
+        "server": "50f30cfd.f2c404",
+        "topics": "i3",
+        "x": 633,
+        "y": 671,
+        "wires": []
+    },
+    {
+        "id": "f23b5316.68d938",
+        "type": "ipsm-out",
+        "z": "baa68d95.d2bc9",
+        "name": "",
+        "server": "50f30cfd.f2c404",
+        "topic": "o3",
+        "x": 626,
+        "y": 740,
+        "wires": [
+            [
+                "a83a59cd.3584c"
+            ]
+        ]
+    },
+    {
+        "id": "a83a59cd.3584c",
+        "type": "debug",
+        "z": "baa68d95.d2bc9",
+        "name": "Translated RDF in ont5",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 923,
+        "y": 739,
+        "wires": []
+    }
+]

@@ -1,0 +1,142 @@
+[
+    {
+        "id": "4f2d662d.be49c8",
+        "type": "tab",
+        "label": "File2Orion"
+    },
+    {
+        "id": "ef385547.f5dea8",
+        "type": "inject",
+        "z": "4f2d662d.be49c8",
+        "name": "START",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 78,
+        "y": 123,
+        "wires": [
+            [
+                "46a00478.592f8c"
+            ]
+        ]
+    },
+    {
+        "id": "46a00478.592f8c",
+        "type": "read-line",
+        "z": "4f2d662d.be49c8",
+        "name": "FILE",
+        "topic": "",
+        "file": "datos.txt",
+        "offset": 0,
+        "limit": 0,
+        "x": 162,
+        "y": 68,
+        "wires": [
+            [
+                "83f20066.d3b91"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "83f20066.d3b91",
+        "type": "csv",
+        "z": "4f2d662d.be49c8",
+        "name": "CSV2JSON",
+        "sep": ",",
+        "hdrin": false,
+        "hdrout": "",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "CallId,numberplate",
+        "x": 274,
+        "y": 118,
+        "wires": [
+            [
+                "5ae19a35.857db4"
+            ]
+        ]
+    },
+    {
+        "id": "5ae19a35.857db4",
+        "type": "function",
+        "z": "4f2d662d.be49c8",
+        "name": "DATA-Creator",
+        "func": "\nvar arrayTipos=['tank','car_carrier','box','dump'];\nmsg.datos = {};\nmsg.datos.booleano = Math.random() >= 0.5;\nmsg.datos.peso = (Math.random()*50)+200;\nmsg.datos.peso = msg.datos.peso.toFixed(2);\nmsg.datos.tipo = arrayTipos[Math.floor(Math.random() * arrayTipos.length)]\nmsg.datos.posi = \"39.459880, -0.332096\"; // Coords test \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 401,
+        "y": 69,
+        "wires": [
+            [
+                "23bb58e2.de1108"
+            ]
+        ]
+    },
+    {
+        "id": "23bb58e2.de1108",
+        "type": "template",
+        "z": "4f2d662d.be49c8",
+        "name": "Plantilla",
+        "field": "cosa",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n  \"id\": \"{{payload.numberplate}}\",\n  \"type\": \"Truck\",\n  \"dangerous\": {\n    \"value\": {{datos.booleano}},\n    \"type\": \"boolean\"\n  },\n  \"category\": {\n    \"value\": \"{{datos.tipo}}\",\n    \"type\": \"string\"\n  },\n  \"weight\": {\n    \"value\": {{datos.peso}},\n    \"type\": \"float\"\n  },\n  \"callid\": {\n    \"value\": \"{{payload.CallId}}\",\n    \"type\": \"string\"\n  },\n  \"coords\": {\n    \"value\": \"{{datos.posi}}\",\n    \"type\": \"string\"\n  }\n}",
+        "x": 517,
+        "y": 114,
+        "wires": [
+            [
+                "3febad0a.fbdcf2"
+            ]
+        ]
+    },
+    {
+        "id": "3febad0a.fbdcf2",
+        "type": "function",
+        "z": "4f2d662d.be49c8",
+        "name": "HTTP-Format",
+        "func": "msg.payload=msg.cosa;\nmsg.headers={\n\"Content-Type\":\"application/json\",\n\"Fiware-Service\":\"interiot\",\n\"Fiware-ServicePath\":\"/demo\"\n}\nmsg.url=\"http://192.168.1.252:1026/v2/entities\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 615,
+        "y": 67,
+        "wires": [
+            [
+                "73c9da5c.2a4dd4"
+            ]
+        ]
+    },
+    {
+        "id": "73c9da5c.2a4dd4",
+        "type": "http request",
+        "z": "4f2d662d.be49c8",
+        "name": "2Orion",
+        "method": "POST",
+        "ret": "txt",
+        "url": "http://192.168.1.252:1026/v2/entities",
+        "tls": "",
+        "x": 674.5,
+        "y": 109,
+        "wires": [
+            [
+                "a35e38e3.205288"
+            ]
+        ]
+    },
+    {
+        "id": "a35e38e3.205288",
+        "type": "debug",
+        "z": "4f2d662d.be49c8",
+        "name": "DEBUG",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 799.5,
+        "y": 107,
+        "wires": []
+    }
+]

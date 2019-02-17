@@ -1,0 +1,34 @@
+<script type="text/javascript">
+  RED.nodes.registerType('get-ports',{
+      category: 'function',
+      color: '#ea5d91',
+      defaults: {
+          url: {value:'', type:'remote-controller'},
+          name: {
+            value:"get-ports"
+          },
+          id : {
+            value: null,
+          }
+      },
+      inputs:1,
+      outputs:1,
+      label: function() {
+          return this.name||"get-ports";
+      }
+  });
+</script>
+<script type="text/x-red" data-template-name="get-ports">
+  <div class="form-row">
+    <label for="node-input-url"><i class="icon-bookmark"></i> Controller URL</label>
+    <input type="text" id="node-input-url">
+  </div>
+  <div class="form-row">
+    <label for="node-input-id"><i class="icon-bookmark"></i> Switch ID</label>
+    <input type="text" id="node-input-id">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="get-ports">
+  <p>Return information about the ports of the switch specified by the ID </p>
+</script>

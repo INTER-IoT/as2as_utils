@@ -1,0 +1,38 @@
+<script type="text/x-red" data-template-name="create-database-influxdb">
+    <div class="form-row">
+        <label for="node-input-server"><i class="icon-tag"></i> Server</label>
+        <input type="text" id="node-input-server" placeholder="Server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-db"><i class="icon-tag"></i> Database:</label>
+        <input type="text" id="node-input-db" placeholder="Database">
+    </div>  
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div> 
+</script>
+
+<script type="text/x-red" data-help-name="create-database-influxdb">
+    <p>Creates a new InfluxDB database</p>
+    <h3>Inputs</h3>
+    <h3>Outputs</h3>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('create-database-influxdb',{
+        category: 'influxdb-api',
+        color: '#c2daf1',
+        defaults: {
+            name: {value:""},
+            db: {value:""},
+            server: {value:"http://158.42.33.15:8086", type:"influxdb-server", required: true}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "interiot.png",
+        label: function() {
+            return this.name||'Create DB InfluxDB';
+        }
+    });
+</script>

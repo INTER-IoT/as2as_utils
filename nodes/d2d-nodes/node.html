@@ -1,0 +1,649 @@
+<script type="text/javascript">
+    RED.nodes.registerType('inter-iot-gateway-api', {
+        category: 'function',
+        color: '#89bf04',
+        defaults: {
+            service: { value: "", type: "inter-iot-gateway-api-service", required: true },
+            method: { value: "" },
+
+            getDevice_deviceUid: { value: "" },
+            getDevice_deviceUidType: { value: "str" },
+            readDevice_deviceUid: { value: "" },
+            readDevice_deviceUidType: { value: "str" },
+            writeDevice_deviceUid: { value: "" },
+            writeDevice_deviceUidType: { value: "str" },
+            writeDevice_body: { value: "" },
+            writeDevice_bodyType: { value: "str" },
+            startDevice_deviceUid: { value: "" },
+            startDevice_deviceUidType: { value: "str" },
+            stopDevice_deviceUid: { value: "" },
+            stopDevice_deviceUidType: { value: "str" },
+            deviceStatus_deviceUid: { value: "" },
+            deviceStatus_deviceUidType: { value: "str" },
+            test_body: { value: "" },
+            test_bodyType: { value: "str" },
+            addExecution_body: { value: "" },
+            addExecution_bodyType: { value: "str" },
+            removeExecution_executionId: { value: "" },
+            removeExecution_executionIdType: { value: "str" },
+            addStatement_body: { value: "" },
+            addStatement_bodyType: { value: "str" },
+            removeStatement_statementId: { value: "" },
+            removeStatement_statementIdType: { value: "str" },
+            addRule_body: { value: "" },
+            addRule_bodyType: { value: "str" },
+            removeRule_ruleId: { value: "" },
+            removeRule_ruleIdType: { value: "str" },
+
+            name: { value: "" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "icon.png",
+        label: function () {
+            return this.name || "inter-iot-gateway-api";
+        },
+        oneditprepare: function () {
+            var selectedMethod = $('#node-input-method option:selected');
+            if (!selectedMethod.val()) {
+                var methods = $('#node-input-method').children();
+                var firstMethod = methods.first();
+                $('#node-input-method').val(firstMethod.val());
+            }
+
+            var showParameters = function () {
+
+                $("#node-input-getDevice_deviceUid").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-getDevice_deviceUidType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#getDevice_deviceUid").hide();
+
+                $("#node-input-readDevice_deviceUid").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-readDevice_deviceUidType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#readDevice_deviceUid").hide();
+
+                $("#node-input-writeDevice_deviceUid").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-writeDevice_deviceUidType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#writeDevice_deviceUid").hide();
+
+                $("#node-input-writeDevice_body").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-writeDevice_bodyType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#writeDevice_body").hide();
+
+                $("#node-input-startDevice_deviceUid").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-startDevice_deviceUidType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#startDevice_deviceUid").hide();
+
+                $("#node-input-stopDevice_deviceUid").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-stopDevice_deviceUidType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#stopDevice_deviceUid").hide();
+
+                $("#node-input-deviceStatus_deviceUid").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-deviceStatus_deviceUidType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#deviceStatus_deviceUid").hide();
+
+                $("#node-input-test_body").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-test_bodyType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#test_body").hide();
+
+                $("#node-input-addExecution_body").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-addExecution_bodyType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#addExecution_body").hide();
+
+                $("#node-input-removeExecution_executionId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-removeExecution_executionIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#removeExecution_executionId").hide();
+
+                $("#node-input-addStatement_body").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-addStatement_bodyType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#addStatement_body").hide();
+
+                $("#node-input-removeStatement_statementId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-removeStatement_statementIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#removeStatement_statementId").hide();
+
+                $("#node-input-addRule_body").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-addRule_bodyType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#addRule_body").hide();
+
+                $("#node-input-removeRule_ruleId").typedInput({
+                    default: 'str',
+                    typeField: $("#node-input-removeRule_ruleIdType"),
+                    types: ['str', 'msg']
+                });
+
+                $("#removeRule_ruleId").hide();
+
+                $("#optional-parameters").hide();
+                $("#optional-parameters-label").hide();
+                if ($("#node-input-method").val() === 'version') {
+
+                }
+                if ($("#node-input-method").val() === 'getDevice') {
+
+                }
+                if ($("#node-input-method").val() === 'readDevice') {
+
+                }
+                if ($("#node-input-method").val() === 'writeDevice') {
+
+                }
+                if ($("#node-input-method").val() === 'startDevice') {
+
+                }
+                if ($("#node-input-method").val() === 'stopDevice') {
+
+                }
+                if ($("#node-input-method").val() === 'deviceStatus') {
+
+                }
+                if ($("#node-input-method").val() === 'info') {
+
+                }
+                if ($("#node-input-method").val() === 'listDevices') {
+
+                }
+                if ($("#node-input-method").val() === 'gatewayId') {
+
+                }
+                if ($("#node-input-method").val() === 'status') {
+
+                }
+                if ($("#node-input-method").val() === 'info_1') {
+
+                }
+                if ($("#node-input-method").val() === 'test') {
+
+                }
+                if ($("#node-input-method").val() === 'listExecutions') {
+
+                }
+                if ($("#node-input-method").val() === 'addExecution') {
+
+                }
+                if ($("#node-input-method").val() === 'removeExecution') {
+
+                }
+                if ($("#node-input-method").val() === 'listStatements') {
+
+                }
+                if ($("#node-input-method").val() === 'addStatement') {
+
+                }
+                if ($("#node-input-method").val() === 'removeStatement') {
+
+                }
+                if ($("#node-input-method").val() === 'listRules') {
+
+                }
+                if ($("#node-input-method").val() === 'addRule') {
+
+                }
+                if ($("#node-input-method").val() === 'removeRule') {
+
+                }
+
+                if ($("#optional-parameters").prop('checked')) {
+                    if ($("#node-input-method").val() === 'version') {
+
+                    }
+                    if ($("#node-input-method").val() === 'getDevice') {
+
+                        $("#getDevice_deviceUid").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'readDevice') {
+
+                        $("#readDevice_deviceUid").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'writeDevice') {
+
+                        $("#writeDevice_deviceUid").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'startDevice') {
+
+                        $("#startDevice_deviceUid").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'stopDevice') {
+
+                        $("#stopDevice_deviceUid").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'deviceStatus') {
+
+                        $("#deviceStatus_deviceUid").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'info') {
+
+                    }
+                    if ($("#node-input-method").val() === 'listDevices') {
+
+                    }
+                    if ($("#node-input-method").val() === 'gatewayId') {
+
+                    }
+                    if ($("#node-input-method").val() === 'status') {
+
+                    }
+                    if ($("#node-input-method").val() === 'info_1') {
+
+                    }
+                    if ($("#node-input-method").val() === 'test') {
+
+                    }
+                    if ($("#node-input-method").val() === 'listExecutions') {
+
+                    }
+                    if ($("#node-input-method").val() === 'addExecution') {
+
+                    }
+                    if ($("#node-input-method").val() === 'removeExecution') {
+
+                        $("#removeExecution_executionId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'listStatements') {
+
+                    }
+                    if ($("#node-input-method").val() === 'addStatement') {
+
+                    }
+                    if ($("#node-input-method").val() === 'removeStatement') {
+
+                        $("#removeStatement_statementId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'listRules') {
+
+                    }
+                    if ($("#node-input-method").val() === 'addRule') {
+
+                    }
+                    if ($("#node-input-method").val() === 'removeRule') {
+
+                        $("#removeRule_ruleId").show();
+                        
+                    }
+                } else {
+                    if ($("#node-input-method").val() === 'version') {
+
+                    }
+                    if ($("#node-input-method").val() === 'getDevice') {
+
+                        $("#getDevice_deviceUid").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'readDevice') {
+
+                        $("#readDevice_deviceUid").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'writeDevice') {
+
+                        $("#writeDevice_deviceUid").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'startDevice') {
+
+                        $("#startDevice_deviceUid").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'stopDevice') {
+
+                        $("#stopDevice_deviceUid").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'deviceStatus') {
+
+                        $("#deviceStatus_deviceUid").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'info') {
+
+                    }
+                    if ($("#node-input-method").val() === 'listDevices') {
+
+                    }
+                    if ($("#node-input-method").val() === 'gatewayId') {
+
+                    }
+                    if ($("#node-input-method").val() === 'status') {
+
+                    }
+                    if ($("#node-input-method").val() === 'info_1') {
+
+                    }
+                    if ($("#node-input-method").val() === 'test') {
+
+                    }
+                    if ($("#node-input-method").val() === 'listExecutions') {
+
+                    }
+                    if ($("#node-input-method").val() === 'addExecution') {
+
+                    }
+                    if ($("#node-input-method").val() === 'removeExecution') {
+
+                        $("#removeExecution_executionId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'listStatements') {
+
+                    }
+                    if ($("#node-input-method").val() === 'addStatement') {
+
+                    }
+                    if ($("#node-input-method").val() === 'removeStatement') {
+
+                        $("#removeStatement_statementId").show();
+                        
+                    }
+                    if ($("#node-input-method").val() === 'listRules') {
+
+                    }
+                    if ($("#node-input-method").val() === 'addRule') {
+
+                    }
+                    if ($("#node-input-method").val() === 'removeRule') {
+
+                        $("#removeRule_ruleId").show();
+                        
+                    }
+                }
+            };
+
+            $("#node-input-method").change(function () {
+                showParameters();
+            });
+
+            $("#optional-parameters").change(function () {
+                showParameters();
+            });
+
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="inter-iot-gateway-api">
+    <div class="form-row">
+        <label for="node-input-service"><i class="fa fa-cloud"></i> <span data-i18n="InterIotGatewayApi.label.service"></span></label>
+        <input type="text" id="node-input-service">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-method"><i class="icon-tasks"></i> <span data-i18n="InterIotGatewayApi.label.method"></span></label>
+        <select id="node-input-method">
+            <option value="version" data-i18n="InterIotGatewayApi.parameters.version"></option>
+            <option value="getDevice" data-i18n="InterIotGatewayApi.parameters.getDevice"></option>
+            <option value="readDevice" data-i18n="InterIotGatewayApi.parameters.readDevice"></option>
+            <option value="writeDevice" data-i18n="InterIotGatewayApi.parameters.writeDevice"></option>
+            <option value="startDevice" data-i18n="InterIotGatewayApi.parameters.startDevice"></option>
+            <option value="stopDevice" data-i18n="InterIotGatewayApi.parameters.stopDevice"></option>
+            <option value="deviceStatus" data-i18n="InterIotGatewayApi.parameters.deviceStatus"></option>
+            <option value="info" data-i18n="InterIotGatewayApi.parameters.info"></option>
+            <option value="listDevices" data-i18n="InterIotGatewayApi.parameters.listDevices"></option>
+            <option value="gatewayId" data-i18n="InterIotGatewayApi.parameters.gatewayId"></option>
+            <option value="status" data-i18n="InterIotGatewayApi.parameters.status"></option>
+            <option value="info_1" data-i18n="InterIotGatewayApi.parameters.info_1"></option>
+            <option value="test" data-i18n="InterIotGatewayApi.parameters.test"></option>
+            <option value="listExecutions" data-i18n="InterIotGatewayApi.parameters.listExecutions"></option>
+            <option value="addExecution" data-i18n="InterIotGatewayApi.parameters.addExecution"></option>
+            <option value="removeExecution" data-i18n="InterIotGatewayApi.parameters.removeExecution"></option>
+            <option value="listStatements" data-i18n="InterIotGatewayApi.parameters.listStatements"></option>
+            <option value="addStatement" data-i18n="InterIotGatewayApi.parameters.addStatement"></option>
+            <option value="removeStatement" data-i18n="InterIotGatewayApi.parameters.removeStatement"></option>
+            <option value="listRules" data-i18n="InterIotGatewayApi.parameters.listRules"></option>
+            <option value="addRule" data-i18n="InterIotGatewayApi.parameters.addRule"></option>
+            <option value="removeRule" data-i18n="InterIotGatewayApi.parameters.removeRule"></option>
+        </select>
+        &nbsp;
+        <input type="checkbox" id="optional-parameters" style="margin-left: 10px; vertical-align: text-bottom; width: auto;">
+        <label for="optional-parameters" id="optional-parameters-label" style="width: auto;"> <span data-i18n="InterIotGatewayApi.parameters.optionalParameters"></span></label>
+    </div>
+
+    <div class="form-row" id="getDevice_deviceUid">
+        <label for="node-input-getDevice_deviceUid"><i class="fa fa-list"></i> <span data-i18n="InterIotGatewayApi.parameters.deviceUid"></span></label>
+
+        <input type="text" id="node-input-getDevice_deviceUid" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-getDevice_deviceUidType">
+    </div>
+
+    <div class="form-row" id="readDevice_deviceUid">
+        <label for="node-input-readDevice_deviceUid"><i class="fa fa-list"></i> <span data-i18n="InterIotGatewayApi.parameters.deviceUid"></span></label>
+
+        <input type="text" id="node-input-readDevice_deviceUid" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-readDevice_deviceUidType">
+    </div>
+
+    <div class="form-row" id="writeDevice_deviceUid">
+        <label for="node-input-writeDevice_deviceUid"><i class="fa fa-list"></i> <span data-i18n="InterIotGatewayApi.parameters.deviceUid"></span></label>
+
+        <input type="text" id="node-input-writeDevice_deviceUid" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-writeDevice_deviceUidType">
+    </div>
+
+    <div class="form-row" id="writeDevice_body">
+        <label for="node-input-writeDevice_body"><i class="fa fa-list"></i> <span data-i18n="InterIotGatewayApi.parameters.body"></span></label>
+
+        <input type="text" id="node-input-writeDevice_body" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-writeDevice_bodyType">
+    </div>
+
+    <div class="form-row" id="startDevice_deviceUid">
+        <label for="node-input-startDevice_deviceUid"><i class="fa fa-list"></i> <span data-i18n="InterIotGatewayApi.parameters.deviceUid"></span></label>
+
+        <input type="text" id="node-input-startDevice_deviceUid" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-startDevice_deviceUidType">
+    </div>
+
+    <div class="form-row" id="stopDevice_deviceUid">
+        <label for="node-input-stopDevice_deviceUid"><i class="fa fa-list"></i> <span data-i18n="InterIotGatewayApi.parameters.deviceUid"></span></label>
+
+        <input type="text" id="node-input-stopDevice_deviceUid" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-stopDevice_deviceUidType">
+    </div>
+
+    <div class="form-row" id="deviceStatus_deviceUid">
+        <label for="node-input-deviceStatus_deviceUid"><i class="fa fa-list"></i> <span data-i18n="InterIotGatewayApi.parameters.deviceUid"></span></label>
+
+        <input type="text" id="node-input-deviceStatus_deviceUid" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-deviceStatus_deviceUidType">
+    </div>
+
+    <div class="form-row" id="test_body">
+        <label for="node-input-test_body"><i class="fa fa-list"></i> <span data-i18n="InterIotGatewayApi.parameters.body"></span></label>
+
+        <input type="text" id="node-input-test_body" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-test_bodyType">
+    </div>
+
+    <div class="form-row" id="addExecution_body">
+        <label for="node-input-addExecution_body"><i class="fa fa-list"></i> <span data-i18n="InterIotGatewayApi.parameters.body"></span></label>
+
+        <input type="text" id="node-input-addExecution_body" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-addExecution_bodyType">
+    </div>
+
+    <div class="form-row" id="removeExecution_executionId">
+        <label for="node-input-removeExecution_executionId"><i class="fa fa-list"></i> <span data-i18n="InterIotGatewayApi.parameters.executionId"></span></label>
+
+        <input type="text" id="node-input-removeExecution_executionId" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-removeExecution_executionIdType">
+    </div>
+
+    <div class="form-row" id="addStatement_body">
+        <label for="node-input-addStatement_body"><i class="fa fa-list"></i> <span data-i18n="InterIotGatewayApi.parameters.body"></span></label>
+
+        <input type="text" id="node-input-addStatement_body" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-addStatement_bodyType">
+    </div>
+
+    <div class="form-row" id="removeStatement_statementId">
+        <label for="node-input-removeStatement_statementId"><i class="fa fa-list"></i> <span data-i18n="InterIotGatewayApi.parameters.statementId"></span></label>
+
+        <input type="text" id="node-input-removeStatement_statementId" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-removeStatement_statementIdType">
+    </div>
+
+    <div class="form-row" id="addRule_body">
+        <label for="node-input-addRule_body"><i class="fa fa-list"></i> <span data-i18n="InterIotGatewayApi.parameters.body"></span></label>
+
+        <input type="text" id="node-input-addRule_body" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-addRule_bodyType">
+    </div>
+
+    <div class="form-row" id="removeRule_ruleId">
+        <label for="node-input-removeRule_ruleId"><i class="fa fa-list"></i> <span data-i18n="InterIotGatewayApi.parameters.ruleId"></span></label>
+
+        <input type="text" id="node-input-removeRule_ruleId" placeholder="" style="width:70%">
+        <input type="hidden" id="node-input-removeRule_ruleIdType">
+    </div>
+
+    <hr/>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="inter-iot-gateway-api">
+
+    <p>Inter-IoT Physical/Virtual Gateway API</p>
+    <h2>Methods</h2>
+        <h3>version</h3>
+        <h4>Get Api version information</h4>
+        <h3>getDevice</h3>
+        <h4>Get Device Description</h4>
+        <h3>readDevice</h3>
+        <h4>Read last device state</h4>
+        <h3>writeDevice</h3>
+        <h4>Write state to device</h4>
+        <h3>startDevice</h3>
+        <h4>Connect device</h4>
+        <h3>stopDevice</h3>
+        <h4>Disconnect device</h4>
+        <h3>deviceStatus</h3>
+        <h4>Get device status</h4>
+        <h3>info</h3>
+        <h4>Get physical gateway information</h4>
+        <h3>listDevices</h3>
+        <h4>Get a list of devices connected to this Gateway</h4>
+        <h3>gatewayId</h3>
+        <h4>Get the physical gateway Id connected</h4>
+        <h3>status</h3>
+        <h4>Check the connection status of the physical Gateway</h4>
+        <h3>info_1</h3>
+        <h4>Get virtual gateway information</h4>
+        <h3>test</h3>
+        <h4>Orion subscription endpoint</h4>
+        <h3>listExecutions</h3>
+        <h4>Get Executions List</h4>
+        <h3>addExecution</h3>
+        <h4>Add Execution</h4>
+        <h3>removeExecution</h3>
+        <h4>Remove Execution</h4>
+        <h3>listStatements</h3>
+        <h4>Get Statement List</h4>
+        <h3>addStatement</h3>
+        <h4>Add Statement</h4>
+        <h3>removeStatement</h3>
+        <h4>Remove Statement</h4>
+        <h3>listRules</h3>
+        <h4>Get Rule List</h4>
+        <h3>addRule</h3>
+        <h4>Add Rule</h4>
+        <h3>removeRule</h3>
+        <h4>Remove Rule</h4>
+</script>
+<script type="text/javascript">
+    RED.nodes.registerType('inter-iot-gateway-api-service', {
+        category: 'config',
+        defaults: {
+            host: { value: "", required: true },
+
+
+            name: { value: "" },
+        },
+        credentials: {
+            temp: { type:"text" }
+        },
+        label: function () {
+            return this.name;
+        },
+        oneditprepare: function () {
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="inter-iot-gateway-api-service">
+    <div class="form-row">
+        <label for="node-config-input-host"><i class="fa fa-globe"></i> <span data-i18n="InterIotGatewayApi.label.host"></span></label>
+        <input type="text" id="node-config-input-host" placeholder="http://localhost:1880">
+    </div>
+
+
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-config-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="inter-iot-gateway-api-service">
+    <p><b>Host</b>: URL to connect</p>
+
+</script>

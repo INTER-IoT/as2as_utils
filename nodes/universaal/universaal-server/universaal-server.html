@@ -1,0 +1,79 @@
+<script type="text/x-red" data-template-name="universaal-server">
+	<div class="form-row">
+        <label for="node-config-input-host"><i class="icon-bookmark"></i> Host</label>
+        <input type="text" id="node-config-input-host">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-port"><i class="icon-bookmark"></i> Port</label>
+        <input type="text" id="node-config-input-port">
+    </div>
+    <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-config-input-useAuth"  style="display:inline-block; width:auto; vertical-align:top;">
+        <label for="node-config-input-useAuth" style="width:70%;"><span>Use authorization</span></label>
+    </div>
+    <div class="form-row node-input-useAuth-row">
+        <label for="node-config-input-username"><i class="fa fa-user"></i> Username</label>
+        <input type="text" id="node-config-input-username">
+    </div>
+    <div class="form-row node-input-useAuth-row">
+        <label for="node-config-input-password"><i class="fa fa-lock"></i> Password</label>
+        <input type="password" id="node-config-input-password">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="universaal-server">
+    <p>UNIVERSAAL SERVER</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('universaal-server',{
+        category: 'config',
+        defaults: {
+            host: {required:true},
+            port: {required:true,validate:RED.validators.number()},
+            username: {},
+            password: {},
+            useAuth: function(){
+                return $('#node-config-input-useAuth').is(":checked");
+            }
+        },
+        label: function() {
+            return this.host+":"+this.port;
+        },
+        oneditprepare: function(){
+            var useAuth = function () {
+                if ($('#node-config-input-useAuth').is(":checked")) {
+                    $(".node-input-useAuth-row").show();
+                } else {
+                    $(".node-input-useAuth-row").hide();
+                }
+            };
+
+            if (this.username || this.password) {
+				$('#node-config-input-useAuth').prop('checked', true);
+				$(".node-config-input-useAuth-row").show();
+			} else {
+				$('#node-config-input-useAuth').prop('checked', false);
+				$(".node-input-useAuth-row").hide();
+				$('#node-config-input-username').val('');
+				$('#node-config-input-password').val('');
+            }
+            
+            $("#node-config-input-useAuth").change(function () { 
+                useAuth(); 
+            });
+            
+            useAuth();
+        },
+        oneditsave: function () {
+        	if ($("#node-config-input-useAuth").is(":checked")) {
+				$(".node-input-useAuth-row").show();
+			} else {
+				$(".node-input-useAuth-row").hide();
+				$('#node-config-input-username').val('');
+				$('#node-config-input-password').val('');
+			}
+        }
+    });
+</script>

@@ -1,0 +1,31 @@
+
+<script type="text/x-red" data-template-name="proton-remote-server">
+    <div class="form-row">
+        <label for="node-config-input-port"><i class="icon-bookmark"></i> Host</label>
+        <input type="text" id="node-config-input-host">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-port"><i class="icon-bookmark"></i> Port</label>
+        <input type="text" id="node-config-input-port">
+    </div>
+	<div class="form-row">
+        <label for="node-config-input-service"><i class="icon-bookmark"></i> Service</label>
+        <input type="text" id="node-config-input-service">
+    </div>
+</script>
+
+<script type="text/javascript">
+
+
+    RED.nodes.registerType('proton-remote-server',{
+        category: 'config',
+        defaults: {
+            host: {value:"localhost",required:true},
+            port: {value:8080,required:true,validate:RED.validators.number()},
+			service: {value:"a",required:true},
+        },
+        label: function() {
+            return this.host+":"+this.port+"/"+this.service;
+        }
+    });
+</script>

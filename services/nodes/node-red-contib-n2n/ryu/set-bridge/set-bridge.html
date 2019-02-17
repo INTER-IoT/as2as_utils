@@ -1,0 +1,35 @@
+<script type="text/javascript">
+  RED.nodes.registerType('set-bridge',{
+      category: 'config',
+      color: '#ea5d91',
+      defaults: {
+        url: {
+            value:"http://sdn-network.inter-iot.eu", 
+            required:true
+        },
+        id: {
+            value:null, 
+            required:true
+        }
+      },
+      label: function() {
+          return this.url;
+      }
+  });
+</script>
+
+
+<script type="text/x-red" data-template-name="set-bridge">
+    <div class="form-row">
+        <label for="node-config-input-url"><i class="icon-bookmark"></i> Controller URL</label>
+        <input type="text" id="node-config-input-url">
+    </div>
+    <div class="form-row">
+      <label for="node-input-id"><i class="icon-bookmark"></i> Switch ID</label>
+      <input type="text" id="node-input-id">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="set-bridge">
+  <p>Set the address of the controller in order to access the database of OVSDB</p>
+</script>

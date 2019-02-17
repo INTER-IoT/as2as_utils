@@ -1,0 +1,358 @@
+[
+    {
+        "id": "7bb2342a.22b41c",
+        "type": "tab",
+        "label": "FIWARE Orion",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d75e01b6.901348",
+        "type": "fiware orion",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "service": "a874c3c4.af1ce",
+        "entype": "Room",
+        "enid": ".*",
+        "attributes": "pressure,temperature",
+        "rtype": "",
+        "rvalue": "",
+        "limit": 20,
+        "includeattr": true,
+        "x": 440,
+        "y": 200,
+        "wires": [
+            [
+                "7de4b9d7.48649"
+            ]
+        ]
+    },
+    {
+        "id": "d70a500f.5c1b9",
+        "type": "orion-test",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "service": "a874c3c4.af1ce",
+        "entype": "Room",
+        "enid": "Room1",
+        "attrkey": "pressure",
+        "attrvalue": "170",
+        "x": 430,
+        "y": 140,
+        "wires": [
+            [
+                "db75b4a6.34c108"
+            ]
+        ]
+    },
+    {
+        "id": "909fc082.6a419",
+        "type": "inject",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 180,
+        "y": 140,
+        "wires": [
+            [
+                "d70a500f.5c1b9"
+            ]
+        ]
+    },
+    {
+        "id": "4ebdce53.fe1a8",
+        "type": "inject",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "d75e01b6.901348"
+            ]
+        ]
+    },
+    {
+        "id": "425c9bd9.44051c",
+        "type": "debug",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 910,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "7de4b9d7.48649",
+        "type": "json",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 670,
+        "y": 200,
+        "wires": [
+            [
+                "425c9bd9.44051c"
+            ]
+        ]
+    },
+    {
+        "id": "b4172ff9.e56948",
+        "type": "inject",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 180,
+        "y": 420,
+        "wires": [
+            [
+                "12a88a94.b13d35"
+            ]
+        ]
+    },
+    {
+        "id": "bdf8b0ca.5a7a5",
+        "type": "debug",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 910,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "aef64375.99d148",
+        "type": "delete-subscription",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "server": "f1af36db.199c88",
+        "subscriptionId": "5c5d67137f13d331cf07f4aa",
+        "x": 450,
+        "y": 480,
+        "wires": [
+            [
+                "29f1c861.b5b21"
+            ]
+        ]
+    },
+    {
+        "id": "8e82a248.d7fad",
+        "type": "inject",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 180,
+        "y": 480,
+        "wires": [
+            [
+                "aef64375.99d148"
+            ]
+        ]
+    },
+    {
+        "id": "12a88a94.b13d35",
+        "type": "get-subscriptions",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "server": "3b7165e1.c2269a",
+        "subscriptionId": "",
+        "x": 450,
+        "y": 420,
+        "wires": [
+            [
+                "d566380c.3e714"
+            ]
+        ]
+    },
+    {
+        "id": "d566380c.3e714",
+        "type": "json",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 670,
+        "y": 420,
+        "wires": [
+            [
+                "bdf8b0ca.5a7a5"
+            ]
+        ]
+    },
+    {
+        "id": "eb43baad.0161d8",
+        "type": "comment",
+        "z": "7bb2342a.22b41c",
+        "name": "Subscriptions",
+        "info": "",
+        "x": 170,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "29f1c861.b5b21",
+        "type": "json",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 670,
+        "y": 480,
+        "wires": [
+            [
+                "f3553cf0.cbcf58"
+            ]
+        ]
+    },
+    {
+        "id": "f3553cf0.cbcf58",
+        "type": "debug",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 910,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "db75b4a6.34c108",
+        "type": "debug",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 910,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d57ff911.b3f578",
+        "type": "comment",
+        "z": "7bb2342a.22b41c",
+        "name": "Insert and get data",
+        "info": "",
+        "x": 190,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "dc75c431.d3d1b",
+        "type": "fiware orion in",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "service": "a874c3c4.af1ce",
+        "throttle": "PT5S",
+        "entype": "Room",
+        "enid": "Room1",
+        "ispattern": false,
+        "duration": "P1W",
+        "attributes": "temperature,pressure",
+        "condvalues": "temperature,pressure",
+        "includeattr": true,
+        "noderedhost": "",
+        "noderedhostauto": true,
+        "x": 170,
+        "y": 360,
+        "wires": [
+            [
+                "352f565a.f0ba4a"
+            ]
+        ]
+    },
+    {
+        "id": "352f565a.f0ba4a",
+        "type": "json",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 670,
+        "y": 360,
+        "wires": [
+            [
+                "cf61b2be.17a28"
+            ]
+        ]
+    },
+    {
+        "id": "cf61b2be.17a28",
+        "type": "debug",
+        "z": "7bb2342a.22b41c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 910,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "a874c3c4.af1ce",
+        "type": "orion-service",
+        "z": "",
+        "name": "",
+        "url": "localhost",
+        "port": "1026"
+    },
+    {
+        "id": "f1af36db.199c88",
+        "type": "orion-server",
+        "z": "",
+        "host": "158.42.33.15",
+        "port": "1026"
+    },
+    {
+        "id": "3b7165e1.c2269a",
+        "type": "orion-server",
+        "z": "",
+        "host": "158.42.33.15",
+        "port": "1026"
+    }
+]

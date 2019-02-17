@@ -1,0 +1,565 @@
+[
+    {
+        "id": "83192646.c99b3",
+        "type": "tab",
+        "label": "Subscriptions to common DB",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "be0ad990.b6966",
+        "type": "comment",
+        "z": "83192646.c99b3",
+        "name": "From FIWARE Orion subscription to common database",
+        "info": "",
+        "x": 260,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "5cf81738.1b4818",
+        "type": "translator-from",
+        "z": "83192646.c99b3",
+        "name": "",
+        "server": "4f5e571c.0b1ae8",
+        "data": "",
+        "iotplatform": "fiware",
+        "setdata": false,
+        "x": 610,
+        "y": 120,
+        "wires": [
+            [
+                "8431199.7d0b868"
+            ]
+        ]
+    },
+    {
+        "id": "e616d853.2c3ad8",
+        "type": "insert-influxdb",
+        "z": "83192646.c99b3",
+        "name": "",
+        "db": "fiware",
+        "table": "test",
+        "platformId": "FIWARE",
+        "device": "termometro",
+        "server": "2a803e73.d0775a",
+        "observation": "",
+        "setobservation": false,
+        "x": 990,
+        "y": 80,
+        "wires": [
+            [
+                "f084ccd5.c79728"
+            ]
+        ]
+    },
+    {
+        "id": "b55754ad.7ca708",
+        "type": "debug",
+        "z": "83192646.c99b3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1290,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "8431199.7d0b868",
+        "type": "json",
+        "z": "83192646.c99b3",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 810,
+        "y": 80,
+        "wires": [
+            [
+                "e616d853.2c3ad8"
+            ]
+        ]
+    },
+    {
+        "id": "f084ccd5.c79728",
+        "type": "json",
+        "z": "83192646.c99b3",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1150,
+        "y": 120,
+        "wires": [
+            [
+                "b55754ad.7ca708"
+            ]
+        ]
+    },
+    {
+        "id": "3e7699b8.c24c5e",
+        "type": "fiware orion in",
+        "z": "83192646.c99b3",
+        "name": "",
+        "service": "a874c3c4.af1ce",
+        "throttle": "PT5S",
+        "entype": "Room",
+        "enid": "Room1",
+        "ispattern": false,
+        "duration": "P1D",
+        "attributes": "temperature",
+        "condvalues": "temperature",
+        "includeattr": true,
+        "noderedhost": "",
+        "noderedhostauto": true,
+        "x": 90,
+        "y": 100,
+        "wires": [
+            [
+                "7f37c272.198cac",
+                "55f22a7.3cdb754"
+            ]
+        ]
+    },
+    {
+        "id": "da06a58e.058fe",
+        "type": "function",
+        "z": "83192646.c99b3",
+        "name": "",
+        "func": "msg.translate = msg.payload[0];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 410,
+        "y": 120,
+        "wires": [
+            [
+                "5cf81738.1b4818"
+            ]
+        ]
+    },
+    {
+        "id": "7f37c272.198cac",
+        "type": "json",
+        "z": "83192646.c99b3",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 270,
+        "y": 120,
+        "wires": [
+            [
+                "da06a58e.058fe"
+            ]
+        ]
+    },
+    {
+        "id": "fd50d09f.fd7d6",
+        "type": "http in",
+        "z": "83192646.c99b3",
+        "name": "",
+        "url": "/subscribertest",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 760,
+        "wires": [
+            [
+                "4be48df4.c90c94",
+                "209d82fa.db4c36"
+            ]
+        ]
+    },
+    {
+        "id": "bb1cfe05.7df5d",
+        "type": "comment",
+        "z": "83192646.c99b3",
+        "name": "From universAAL subscription to common database",
+        "info": "",
+        "x": 250,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "4be48df4.c90c94",
+        "type": "function",
+        "z": "83192646.c99b3",
+        "name": "",
+        "func": "msg.translate = msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 350,
+        "y": 760,
+        "wires": [
+            [
+                "a25cdcc0.9e8ca8"
+            ]
+        ]
+    },
+    {
+        "id": "a25cdcc0.9e8ca8",
+        "type": "translator-from",
+        "z": "83192646.c99b3",
+        "name": "",
+        "server": "4f5e571c.0b1ae8",
+        "data": "",
+        "iotplatform": "universaal",
+        "setdata": false,
+        "x": 600,
+        "y": 760,
+        "wires": [
+            [
+                "b26c7150.f08f8"
+            ]
+        ]
+    },
+    {
+        "id": "c94a9303.607be8",
+        "type": "insert-influxdb",
+        "z": "83192646.c99b3",
+        "name": "",
+        "db": "universaal",
+        "table": "test",
+        "platformId": "universaal",
+        "device": "sensor99761296A000",
+        "server": "2a803e73.d0775a",
+        "observation": "",
+        "setobservation": false,
+        "x": 970,
+        "y": 760,
+        "wires": [
+            [
+                "5b5655d6.37c914"
+            ]
+        ]
+    },
+    {
+        "id": "b26c7150.f08f8",
+        "type": "json",
+        "z": "83192646.c99b3",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 810,
+        "y": 720,
+        "wires": [
+            [
+                "c94a9303.607be8"
+            ]
+        ]
+    },
+    {
+        "id": "5b5655d6.37c914",
+        "type": "json",
+        "z": "83192646.c99b3",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1150,
+        "y": 720,
+        "wires": [
+            [
+                "3002bd66.45f1c2"
+            ]
+        ]
+    },
+    {
+        "id": "3002bd66.45f1c2",
+        "type": "debug",
+        "z": "83192646.c99b3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1290,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "209d82fa.db4c36",
+        "type": "debug",
+        "z": "83192646.c99b3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 370,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "a257a231.063f78",
+        "type": "insert-data",
+        "z": "83192646.c99b3",
+        "name": "",
+        "space": "interiot",
+        "publisher": "sensor99761296A000",
+        "data": "@prefix ns: <urn:org.universAAL.aal_space:test_environment#> . @prefix ns1: <http://ontology.universaal.org/PhThing.owl#> . @prefix pvn: <http://ontology.universAAL.org/uAAL.owl#> . @prefix ns2: <http://ontology.universAAL.org/InterIoT.owl#> . @prefix ns3: <http://ontology.universaal.org/Measurement.owl#> . @prefix ns4: <http://ontology.universAAL.org/Profile.owl#> . @prefix xsd: <http://www.w3.org/2001/XMLSchema#> . @prefix ns5: <http://ontology.universaal.org/HealthMeasurement.owl#> . @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . @prefix ns6: <http://ontology.universAAL.org/Device.owl#> . @prefix : <http://ontology.universAAL.org/Context.owl#> . <urn:org.universAAL.middleware.context.rdf:ContextEvent#_:7f0000017573c131:999> a :ContextEvent ;   pvn:theInvolvedHumanUser ns:Namew ;   rdf:subject ns2:sensor99761296A000 ;   :hasTimestamp \"1510311143841\"^^xsd:long ;   rdf:predicate ns6:hasValue ;   rdf:object ns2:weight1510311143825 . ns2:weight1510311143825 a ns5:PersonWeight ,     ns3:Measurement ,     ns5:HealthMeasurement ;   ns3:value \"59.8\"^^xsd:float . ns2:sensor99761296A000 a <http://ontology.universAAL.org/PersonalHealthDevice.owl#WeighingScale> ,     ns1:Device ,     ns1:PhysicalThing ;   ns6:hasValue ns2:weight1510311143825 . pvn:DefaultContextPublisherinteriot a :ContextProvider ;   :hasType :controller . ns:Namew a ns4:Caregiver ,     ns4:User ,     ns1:PhysicalThing . :controller a :ContextProviderType .",
+        "server": "85358c05.83c0f8",
+        "setdata": false,
+        "x": 420,
+        "y": 960,
+        "wires": [
+            [
+                "e69b0f8e.d1a87"
+            ]
+        ]
+    },
+    {
+        "id": "e19fac1a.173c6",
+        "type": "inject",
+        "z": "83192646.c99b3",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 960,
+        "wires": [
+            [
+                "9647af37.3b1718"
+            ]
+        ]
+    },
+    {
+        "id": "e69b0f8e.d1a87",
+        "type": "debug",
+        "z": "83192646.c99b3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 900,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "9647af37.3b1718",
+        "type": "function",
+        "z": "83192646.c99b3",
+        "name": "",
+        "func": "msg.payload=`@prefix ns: <urn:org.universAAL.aal_space:test_environment#> .\n@prefix ns1: <http://ontology.universaal.org/PhThing.owl#> .\n@prefix pvn: <http://ontology.universAAL.org/uAAL.owl#> .\n@prefix ns2: <http://ontology.universAAL.org/InterIoT.owl#> .\n@prefix ns3: <http://ontology.universaal.org/Measurement.owl#> .\n@prefix ns4: <http://ontology.universAAL.org/Profile.owl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n@prefix ns5: <http://ontology.universaal.org/HealthMeasurement.owl#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix ns6: <http://ontology.universAAL.org/Device.owl#> .\n@prefix : <http://ontology.universAAL.org/Context.owl#> .\n<urn:org.universAAL.middleware.context.rdf:ContextEvent#_:7f0000017573c131:999> a :ContextEvent ;\n  pvn:theInvolvedHumanUser ns:Namew ;\n  rdf:subject ns2:sensor99761296A000 ;\n  :hasTimestamp \"1510311143841\"^^xsd:long ;\n  rdf:predicate ns6:hasValue ;\n  rdf:object ns2:weight1510311143825 .\nns2:weight1510311143825 a ns5:PersonWeight ,\n    ns3:Measurement ,\n    ns5:HealthMeasurement ;\n  ns3:value \"59.8\"^^xsd:float .\nns2:sensor99761296A000 a <http://ontology.universAAL.org/PersonalHealthDevice.owl#WeighingScale> ,\n    ns1:Device ,\n    ns1:PhysicalThing ;\n  ns6:hasValue ns2:weight1510311143825 .\npvn:DefaultContextPublisherinteriot a :ContextProvider ;\n  :hasType :controller .\nns:Namew a ns4:Caregiver ,\n    ns4:User ,\n    ns1:PhysicalThing .\n:controller a :ContextProviderType .`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 230,
+        "y": 960,
+        "wires": [
+            [
+                "a257a231.063f78"
+            ]
+        ]
+    },
+    {
+        "id": "55f22a7.3cdb754",
+        "type": "debug",
+        "z": "83192646.c99b3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 290,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2942fad9.639b2e",
+        "type": "comment",
+        "z": "83192646.c99b3",
+        "name": "Test: update data of an Orion entity",
+        "info": "",
+        "x": 200,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "ebd6a41.182dfd8",
+        "type": "orion-test",
+        "z": "83192646.c99b3",
+        "name": "",
+        "service": "a874c3c4.af1ce",
+        "entype": "Room",
+        "enid": "Room1",
+        "attrkey": "pressure",
+        "attrvalue": "170",
+        "x": 350,
+        "y": 320,
+        "wires": [
+            [
+                "48bc51c3.1952f"
+            ]
+        ]
+    },
+    {
+        "id": "7565d857.7c1028",
+        "type": "inject",
+        "z": "83192646.c99b3",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 320,
+        "wires": [
+            [
+                "ebd6a41.182dfd8"
+            ]
+        ]
+    },
+    {
+        "id": "48bc51c3.1952f",
+        "type": "debug",
+        "z": "83192646.c99b3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 650,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "1e5c62a0.5c82a5",
+        "type": "create-subscriber",
+        "z": "83192646.c99b3",
+        "name": "",
+        "space": "interiot",
+        "subscriberId": "subscribertest",
+        "callback": "localhost:1880/subscribertest",
+        "pattern": "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . \t    @prefix : <http://www.w3.org/2002/07/owl#> . \t\t    _:BN000000 a <http://ontology.universAAL.org/Context.owl#ContextEventPattern> .",
+        "server": "85358c05.83c0f8",
+        "setpattern": false,
+        "x": 450,
+        "y": 620,
+        "wires": [
+            [
+                "c4a0403f.6e996"
+            ]
+        ]
+    },
+    {
+        "id": "91cf332b.d16828",
+        "type": "inject",
+        "z": "83192646.c99b3",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 620,
+        "wires": [
+            [
+                "985142d7.809078"
+            ]
+        ]
+    },
+    {
+        "id": "c4a0403f.6e996",
+        "type": "debug",
+        "z": "83192646.c99b3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 890,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "985142d7.809078",
+        "type": "function",
+        "z": "83192646.c99b3",
+        "name": "",
+        "func": "msg.payload=`@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n\t    @prefix : <http://www.w3.org/2002/07/owl#> .\n\t\t    _:BN000000 a <http://ontology.universAAL.org/Context.owl#ContextEventPattern> .`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 230,
+        "y": 620,
+        "wires": [
+            [
+                "1e5c62a0.5c82a5"
+            ]
+        ]
+    },
+    {
+        "id": "88f4f6c3.b8ee08",
+        "type": "comment",
+        "z": "83192646.c99b3",
+        "name": "Create universAAL subscriber",
+        "info": "",
+        "x": 180,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "1b43ee07.fa4392",
+        "type": "comment",
+        "z": "83192646.c99b3",
+        "name": "Test: update data in universAAL",
+        "info": "",
+        "x": 190,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "4f5e571c.0b1ae8",
+        "type": "translator-server",
+        "z": "",
+        "host": "localhost",
+        "port": "4568"
+    },
+    {
+        "id": "2a803e73.d0775a",
+        "type": "influxdb-server",
+        "z": "",
+        "host": "localhost",
+        "port": "4567"
+    },
+    {
+        "id": "a874c3c4.af1ce",
+        "type": "orion-service",
+        "z": "",
+        "name": "",
+        "url": "localhost",
+        "port": "1026"
+    },
+    {
+        "id": "85358c05.83c0f8",
+        "type": "universaal-server",
+        "z": "",
+        "host": "localhost",
+        "port": "9000",
+        "username": "admin",
+        "password": "admin",
+        "useAuth": true
+    }
+]

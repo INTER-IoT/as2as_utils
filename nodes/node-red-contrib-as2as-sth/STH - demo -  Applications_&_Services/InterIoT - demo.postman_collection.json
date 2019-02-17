@@ -1,0 +1,350 @@
+{
+	"variables": [],
+	"info": {
+		"name": "InterIoT - demo",
+		"_postman_id": "94383cc4-e8dd-89c8-c9b4-22b5912c16bf",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create SUBS",
+			"request": {
+				"url": "http://192.168.1.252:1026/v2/subscriptions",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "interiot",
+						"description": ""
+					},
+					{
+						"key": "Fiware-ServicePath",
+						"value": "/demo",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"description\": \"Notificaciones para STH de trucks en demo local\",\r\n  \"subject\": {\r\n    \"entities\": [\r\n      {\r\n      \t\"idPattern\":\".*\",\r\n        \"type\":\"Truck\"\r\n      }\r\n    ],\r\n    \"condition\": {\r\n        \"attrs\": [\r\n          \"dangerous\",\r\n          \"category\",\r\n          \"weight\"\r\n        ]\r\n      }\r\n  },\r\n  \"notification\": {\r\n    \"http\": {\r\n      \"url\": \"http://192.168.1.252:8666/notify\"\r\n    },\r\n    \"attrsFormat\": \"legacy\",\r\n    \"exceptAttrs\":[\r\n    \t\"callid\",\r\n    \t\"coords\"\r\n    ]\r\n  }\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create SUBS 2",
+			"request": {
+				"url": "http://192.168.1.252:1026/v2/subscriptions",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "interiot",
+						"description": ""
+					},
+					{
+						"key": "Fiware-ServicePath",
+						"value": "/demo",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"description\": \"Notificaciones para STH de trucks en demo local callid\",\r\n  \"subject\": {\r\n    \"entities\": [\r\n      {\r\n      \t\"idPattern\":\".*\",\r\n        \"type\":\"Truck\"\r\n      }\r\n    ],\r\n    \"condition\": {\r\n        \"attrs\": [\r\n          \"callid\"\r\n        ]\r\n      }\r\n  },\r\n  \"notification\": {\r\n    \"http\": {\r\n      \"url\": \"http://192.168.1.252:8666/notify\"\r\n    },\r\n    \"attrsFormat\": \"legacy\",\r\n    \"attrs\": [\r\n      \"callid\"\r\n    ]\r\n  }\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create entidad",
+			"request": {
+				"url": "http://192.168.1.252:1026/v2/entities",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "interiot",
+						"description": ""
+					},
+					{
+						"key": "Fiware-ServicePath",
+						"value": "/demo",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"4451XVF\",\n  \"type\": \"Truck\",\n  \"dangerous\": {\n    \"value\": false,\n    \"type\": \"boolean\"\n  },\n  \"category\": {\n    \"value\": \"car_carrier\",\n    \"type\": \"string\"\n  },\n  \"weight\": {\n    \"value\": 237.04,\n    \"type\": \"float\"\n  },\n  \"callid\": {\n    \"value\": \"1201702791\",\n    \"type\": \"string\"\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get entidades",
+			"request": {
+				"url": "http://192.168.1.252:1026/v2/entities?type=Truck",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "interiot",
+						"description": ""
+					},
+					{
+						"key": "Fiware-ServicePath",
+						"value": "/demo",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"sala1\",\r\n  \"type\": \"Sala\",\r\n  \"temperatura\": {\r\n    \"value\": 14.3,\r\n    \"type\": \"Number\"\r\n  },\r\n  \"presion\": {\r\n    \"value\": 983,\r\n    \"type\": \"Number\"\r\n  }\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "STH - GET",
+			"request": {
+				"url": "http://192.168.1.252:8666/STH/v1/contextEntities/type/Truck/id/4451XVF/attributes/callid?lastN=4",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "interiot",
+						"description": ""
+					},
+					{
+						"key": "Fiware-ServicePath",
+						"value": "/demo",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete STH data",
+			"request": {
+				"url": "http://192.168.1.252:8666/STH/v1/contextEntities",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "interiot",
+						"description": ""
+					},
+					{
+						"key": "Fiware-ServicePath",
+						"value": "/demo",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get subscriptions",
+			"request": {
+				"url": "http://192.168.1.252:1026/v2/subscriptions",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "interiot",
+						"description": ""
+					},
+					{
+						"key": "Fiware-ServicePath",
+						"value": "/demo",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"sala1\",\r\n  \"type\": \"Sala\",\r\n  \"temperatura\": {\r\n    \"value\": 14.3,\r\n    \"type\": \"Number\"\r\n  },\r\n  \"presion\": {\r\n    \"value\": 983,\r\n    \"type\": \"Number\"\r\n  }\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete sub",
+			"request": {
+				"url": "http://192.168.1.252:1026/v2/subscriptions/592c2cf7961df6992d17afa4",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "interiot",
+						"description": ""
+					},
+					{
+						"key": "Fiware-ServicePath",
+						"value": "/demo",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"description\": \"Notificaciones para STH de trucks en demo local\",\r\n  \"subject\": {\r\n    \"entities\": [\r\n      {\r\n      \t\"idPattern\": \".*\",\r\n        \"type\": \"Truck\"\r\n      }\r\n    ],\r\n    \"condition\": {\r\n      \"attrs\": []\r\n    }\r\n  },\r\n  \"notification\": {\r\n    \"http\": {\r\n      \"url\": \"http://127.0.0.1:8666/notify\"\r\n    },\r\n    \"attrsFormat\": \"legacy\",\r\n    \"attrs\": []\r\n  }\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete entity",
+			"request": {
+				"url": "http://192.168.1.252:1026/v2/entities/8877TYR?type=Truck",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "interiot",
+						"description": ""
+					},
+					{
+						"key": "Fiware-ServicePath",
+						"value": "/demo",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update attr orion",
+			"request": {
+				"url": "http://192.168.1.252:1026/v2/entities/4451XVF/attrs/coords/value",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/plain",
+						"description": ""
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "interiot",
+						"description": ""
+					},
+					{
+						"key": "Fiware-ServicePath",
+						"value": "/demo",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\"39.459880, -0.321061\""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get entidades copy",
+			"request": {
+				"url": "http://192.168.1.252:1026/v2/entities?type=Truck",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "interiot",
+						"description": ""
+					},
+					{
+						"key": "Fiware-ServicePath",
+						"value": "/demo",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"sala1\",\r\n  \"type\": \"Sala\",\r\n  \"temperatura\": {\r\n    \"value\": 14.3,\r\n    \"type\": \"Number\"\r\n  },\r\n  \"presion\": {\r\n    \"value\": 983,\r\n    \"type\": \"Number\"\r\n  }\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

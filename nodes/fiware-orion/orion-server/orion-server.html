@@ -1,0 +1,27 @@
+<script type="text/x-red" data-template-name="orion-server">
+	<div class="form-row">
+        <label for="node-config-input-host"><i class="icon-bookmark"></i> Host</label>
+        <input type="text" id="node-config-input-host">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-port"><i class="icon-bookmark"></i> Port</label>
+        <input type="text" id="node-config-input-port">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="orion-server">
+    <p>FIWARE-ORION SERVER</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('orion-server',{
+        category: 'config',
+        defaults: {
+            host: {required:true},
+            port: {required:true,validate:RED.validators.number()}
+        },
+        label: function() {
+            return this.host+":"+this.port;
+        }
+    });
+</script>

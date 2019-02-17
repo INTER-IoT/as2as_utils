@@ -1,0 +1,27 @@
+<script type="text/javascript">
+  RED.nodes.registerType('get-nodes',{
+      category: 'function',
+      color: '#ea5d91',
+      defaults: {
+          url: {value:'', type:'remote-controller'},
+          name: {
+            value:"get-nodes"
+          }
+      },
+      inputs:1,
+      outputs:1,
+      label: function() {
+          return this.name||"get-nodes";
+      }
+  });
+</script>
+<script type="text/x-red" data-template-name="get-nodes">
+  <div class="form-row">
+    <label for="node-input-url"><i class="icon-bookmark"></i> Controller URL</label>
+    <input type="text" id="node-input-url">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="get-nodes">
+  <p>Return information about switches (nodes) that compose the SDN network</p>
+</script>

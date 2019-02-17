@@ -1,0 +1,22 @@
+{
+  "name": "mwtranslator",
+  "version": "1.0.0",
+  "description": "node-red mwtranslator for INTER-IoT project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SATRD",
+  "license": "Apache-2.0",
+  "node-red": {
+    "nodes": {
+      "translator-to": "translator-to/translator-to.js",
+      "translator-from": "translator-from/translator-from.js",
+      "translator-server": "translator-server/translator-server.js"
+    }
+  },
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
+}

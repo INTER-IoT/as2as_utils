@@ -1,0 +1,43 @@
+<script type="text/x-red" data-template-name="subscribe-client">
+    <div class="form-row">
+        <label for="node-input-server"><i class="icon-tag"></i> Server</label>
+        <input type="text" id="node-input-server" placeholder="Server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-clientID"><i class="icon-tag"></i> Client-ID</label>
+        <input type="text" id="node-input-clientID" placeholder="Client-ID">
+    </div>
+    <div class="form-row">
+        <label for="node-input-deviceIds"><i class="icon-tag"></i> Device IDs</label>
+        <input type="text" id="node-input-deviceIds" placeholder="deviceIds">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>  
+</script>
+
+<script type="text/x-red" data-help-name="subscribe-client">
+    <p>Subscribe a client to specified devices</p>
+    <h3>Inputs</h3>
+    <h3>Outputs</h3>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('subscribe-client',{
+        category: 'mw2mw-api',
+        color: '#c2daf1',
+        defaults: {
+            name: {value:""},
+            server: {value:"http://158.42.188.129:8080", type:"mw2mw-server", required: true},
+            clientID: {value: "myclient"},
+            deviceIds: {value: "", required: true},
+        },
+        inputs:1,
+        outputs:1,
+        icon: "interiot.png",
+        label: function() {
+            return this.name||'Subscribe to devices';
+        }
+    });
+</script>

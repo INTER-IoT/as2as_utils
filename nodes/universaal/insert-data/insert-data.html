@@ -1,0 +1,67 @@
+<script type="text/x-red" data-template-name="insert-data">
+    <div class="form-row">
+        <label for="node-input-server"><i class="icon-tag"></i> Server</label>
+        <input type="text" id="node-input-server" placeholder="Server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-space"><i class="icon-tag"></i> Space</label>
+        <input type="text" id="node-input-space" placeholder="Space">
+    </div>
+    <div class="form-row">
+        <label for="node-input-publisher"><i class="icon-tag"></i> Publisher</label>
+        <input type="text" id="node-input-publisher" placeholder="Publisher">
+    </div>
+    <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-setdata"  style="display:inline-block; width:auto; vertical-align:top;">
+        <label for="node-input-setdata" style="width:70%;"><span>Enable manual data input</span></label>
+    </div>
+    <div class="form-row" id="node-set-data">
+        <label for="node-input-data"><i class="icon-tag"></i> Data</label>
+        <input type="text" id="node-input-data" placeholder="Data">
+    </div>  
+</script>
+
+<script type="text/x-red" data-help-name="insert-data">
+    <p>Inserts data into an universAAL IoT space</p>
+    <h3>Inputs</h3>
+    <h3>Outputs</h3>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('insert-data',{
+        category: 'universAAL',
+        color: '#c2daf1',
+        defaults: {
+            name: {value:""},
+            space: {value:"", required: true},
+            publisher: {value:"", required: true},
+            data: {value:""},
+            server: {value:"", type:"universaal-server", required: true},
+            setdata: function(){
+                return $('#node-input-setdata').is(":checked");
+            }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "interiot.png",
+        label: function() {
+            return this.name||'Insert into universAAL';
+        },
+        oneditprepare: function(){
+            var setdata = function () {
+                if ($('#node-input-setdata').is(":checked")) {
+                    $("#node-set-data").show();
+                } else {
+                    $("#node-set-data").hide();
+                }
+            };
+            $("#node-input-setdata").change(function () { setdata(); });
+            setdata();
+        }
+    });
+</script>

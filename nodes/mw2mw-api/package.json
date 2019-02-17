@@ -1,0 +1,29 @@
+{
+  "name": "mw2mw-api",
+  "version": "1.0.0",
+  "description": "INTER-IoT Middleware Layer Interoperability Components API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "MW2MW"
+  ],
+  "author": "SATRD",
+  "license": "Apache-2.0",
+  "node-red":{
+    "nodes":{
+      "get-clients": "get-clients/get-clients.js",
+      "register-client": "register-client/register-client.js",
+      "unregister-client": "unregister-client/unregister-client.js",
+      "subscribe-client": "subscribe-client/subscribe-client.js",
+      "get-platforms": "get-platforms/get-platforms.js",
+      "get-devices": "get-devices/get-devices.js",
+      "mw2mw-server": "mw2mw-server/mw2mw-server.js"
+    }
+  },
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
+}

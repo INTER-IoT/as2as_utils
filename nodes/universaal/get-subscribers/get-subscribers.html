@@ -1,0 +1,38 @@
+<script type="text/x-red" data-template-name="get-subscribers">
+    <div class="form-row">
+        <label for="node-input-server"><i class="icon-tag"></i> Server</label>
+        <input type="text" id="node-input-server" placeholder="Server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-space"><i class="icon-tag"></i> Space</label>
+        <input type="text" id="node-input-space" placeholder="Space">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="get-subscribers">
+    <p>Lists all subscribers from an universAAL IoT space</p>
+    <h3>Inputs</h3>
+    <h3>Outputs</h3>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('get-subscribers',{
+        category: 'universAAL',
+        color: '#c2daf1',
+        defaults: {
+            name: {value:""},
+            space: {value:"", required: true},
+            server: {value:"", type:"universaal-server", required: true}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "interiot.png",
+        label: function() {
+            return this.name||'Get universAAL subscribers';
+        }
+    });
+</script>

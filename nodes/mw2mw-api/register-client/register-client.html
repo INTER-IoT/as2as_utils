@@ -1,0 +1,61 @@
+<script type="text/x-red" data-template-name="register-client">
+    <div class="form-row">
+        <label for="node-input-server"><i class="icon-tag"></i> Server</label>
+        <input type="text" id="node-input-server" placeholder="Server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-clientID"><i class="icon-tag"></i> Client-ID</label>
+        <input type="text" id="node-input-clientID" placeholder="Client-ID">
+    </div>
+    <div class="form-row">
+        <label for="node-input-clientId"><i class="icon-tag"></i> clientId</label>
+        <input type="text" id="node-input-clientId" placeholder="clientId">
+    </div>
+    <div class="form-row">
+        <label for="node-input-callbackUrl"><i class="icon-tag"></i> callbackUrl</label>
+        <input type="text" id="node-input-callbackUrl" placeholder="callbackUrl">
+    </div>
+    <div class="form-row">
+        <label for="node-input-receivingCapacity"><i class="icon-tag"></i> receivingCapacity</label>
+        <input type="text" id="node-input-receivingCapacity" placeholder="receivingCapacity">
+    </div>
+    <div class="form-row">
+        <label for="node-input-responseDelivery"><i class="icon-bookmark"></i>Response delivery:</label>
+        <select id="node-input-responseDelivery">
+            <option value="CLIENT_PULL">Pull</option>
+            <option value="SERVER_PUSH">Push</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>  
+</script>
+
+<script type="text/x-red" data-help-name="register-client">
+    <p>Register specified client</p>
+    <h3>Inputs</h3>
+    <h3>Outputs</h3>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('register-client',{
+        category: 'mw2mw-api',
+        color: '#c2daf1',
+        defaults: {
+            name: {value:""},
+            server: {value:"http://158.42.188.129:8080", type:"mw2mw-server", required: true},
+            clientID: {value: "myclient"},
+            clientId: {value: "", required: true},
+            callbackUrl: {value: "", required: true},
+            receivingCapacity: {value: 0, validate:RED.validators.number(), required: true},
+            responseDelivery: {value: "", required: true}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "interiot.png",
+        label: function() {
+            return this.name||'Register a new client';
+        }
+    });
+</script>

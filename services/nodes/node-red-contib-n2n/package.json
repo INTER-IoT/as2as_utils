@@ -1,0 +1,32 @@
+{
+  "name": "node-red-contrib-sdn",
+  "version": "0.0.1",
+  "description": "Nodes for interacting with the n2n layer of INTER-IoT, including Ryu controller management nodes and OpenVSwitch management nodes",
+  "license": "",
+  "keywords": [
+    "sdn",
+    "ovs",
+    "INTER-IoT",
+    "ryu"
+  ],
+  "node-red": {
+    "nodes": {
+      "ryu-get-nodes": "ryu/get-nodes/get-nodes.js",
+      "ryu-get-links": "ryu/get-links/get-links.js",
+      "ryu-get-flows": "ryu/get-flows/get-flows.js",
+      "ryu-get-tables": "ryu/get-tables/get-tables.js",
+      "ryu-get-ports": "ryu/get-ports/get-ports.js",
+      "ryu-post-flowentry":"ryu/post-flowentry/post-flowentry.js",
+      "ryu-config":"ryu/config/remote-controller.js"
+    }
+  },
+  "author": {
+    "name": "Jara Suárez de Puga Garcia",
+    "email": "jasuade@dcom.upv.es",
+    "url": "http://github.com/jasuade"
+  },
+  "dependencies": {
+    "request": "^2.81.0",
+    "request-promise": "^4.2.2"
+  }
+}

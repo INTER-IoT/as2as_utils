@@ -1,0 +1,53 @@
+<script type="text/x-red" data-template-name="proton-config">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="icon-bookmark"></i> Name</label>
+        <input type="text" id="node-config-input-name"> <br/>
+    </div>
+    <div class="form-row">
+      <label for="node-input-protocol"><i class="icon-bookmark"></i> Protocol</label>
+      <select id="node-input-protocol">
+        <option value="http">http</option>
+        <option value="https">https</option>
+      </select>
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-host"><i class="icon-bookmark"></i> Host</label>
+        <input type="text" id="node-config-input-host">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-port"><i class="icon-bookmark"></i> Port</label>
+        <input type="text" id="node-config-input-port">
+    </div>
+</script>
+
+
+
+<script type="text/javascript">
+  /*  global RED */
+  RED.nodes.registerType('proton-config', {
+    category: 'config',
+    defaults: {
+      name: {
+        value: 'CEP1',
+        required: true,
+      },
+      protocol: {
+        value: 'http',
+        required: true,
+      },
+      host: {
+        value: 'localhost',
+        required: true,
+      },
+      port: {
+        value: 8080,
+        required: true,
+        validate: RED.validators.number(),
+      },
+    },
+    label: function label() {
+      return `${this.name}`;
+    },
+    icon: 'proton.png',
+  });
+</script>

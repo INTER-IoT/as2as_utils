@@ -1,0 +1,30 @@
+<script type="text/x-red" data-template-name="position">
+  <div class="form-row">
+    <label for="node-input-positionConfig"><i class="icon-bookmark"></i> Config</label>
+    <input type="text" id="node-input-positionConfig">
+  </div>
+</script>
+
+
+
+<script type="text/javascript">
+  /*  global RED */
+  RED.nodes.registerType('position', {
+    category: 'position',
+    defaults: {
+      positionConfig: {
+        value: '',
+        required: true,
+        type: 'position-config',
+      },
+    },
+    label: function label() {
+      const name = RED.nodes.node(this.positionConfig) ? RED.nodes.node(this.positionConfig).name : '';
+      return `${name}: position`;
+    },
+    inputs: 0,
+    outputs: 1,
+    color: '#a78ccc',
+    icon: 'position.png',
+  });
+</script>

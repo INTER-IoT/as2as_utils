@@ -1,0 +1,204 @@
+[
+    {
+        "id": "f2b9d293.541cf",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "44a728b8.d8eec8",
+        "type": "inject",
+        "z": "f2b9d293.541cf",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 260,
+        "wires": [
+            [
+                "ca210434.81ec4"
+            ]
+        ]
+    },
+    {
+        "id": "ca210434.81ec4",
+        "type": "function",
+        "z": "f2b9d293.541cf",
+        "name": "Input message to translate",
+        "func": "msg.translate=`@prefix ns: <http://ontology.universaal.org/PhThing.owl#> .\n@prefix ns1: <http://ontology.universAAL.org/Context.owl#> .\n@prefix ns2: <http://ontology.universaal.org/Measurement.owl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n@prefix owl: <http://www.w3.org/2002/07/owl#> .\n@prefix ns3: <http://ontology.universaal.org/HealthMeasurement.owl#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix ns4: <http://ontology.universAAL.org/Device.owl#> .\n@prefix : <http://ontology.universAAL.org/InterIoT.owl#> .\n<urn:org.universAAL.middleware.context.rdf:ContextEvent#_:9e2aa729ac420ba3:171d>\n ns1:hasProvider :interHEALTHbpub ;\n  a ns1:ContextEvent ;\n  rdf:subject :sensor  ;\n  ns1:hasTimestamp \"1418143637251\"^^xsd:long ;\n  rdf:predicate ns4:hasValue ;\n  rdf:object :bp .\n:bpsys a ns2:Measurement ;\n  ns2:value \"22.2\"^^xsd:float .\nns1:gauge a ns1:ContextProviderType .\n:sensor  a <http://ontology.universAAL.org/PersonalHealthDevice.owl#BloodPressureSensor> ,\n    ns:Device ,\n    ns:PhysicalThing ;\n  ns4:hasValue :bp .\n:interHEALTHbpub a ns1:ContextProvider ;\n  ns1:hasType ns1:gauge ;\n  ns1:myClassesOfEvents [\n      a ns1:ContextEventPattern ;\n      <http://www.w3.org/2000/01/rdf-schema#subClassOf> [\n          a owl:Restriction ;\n          owl:allValuesFrom <http://ontology.universAAL.org/PersonalHealthDevice.owl#BloodPressureSensor> ;\n          owl:onProperty rdf:subject\n        ]\n    ] .\n:bpdias a ns2:Measurement ;\n  ns2:value \"11.1\"^^xsd:float .\n:bp ns3:diastolicBloodPreassure :bpdias ;\n  a ns3:BloodPressure ,\n    ns3:HealthMeasurement ;\n  ns3:systolicBloodPreassure :bpsys .`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 260,
+        "wires": [
+            [
+                "f1fc131b.90aeb"
+            ]
+        ]
+    },
+    {
+        "id": "f1fc131b.90aeb",
+        "type": "translator-from",
+        "z": "f2b9d293.541cf",
+        "name": "",
+        "server": "4f5e571c.0b1ae8",
+        "data": "",
+        "iotplatform": "universaal",
+        "setdata": false,
+        "x": 600,
+        "y": 300,
+        "wires": [
+            [
+                "ee3d14b2.841648"
+            ]
+        ]
+    },
+    {
+        "id": "eb94dca.74b012",
+        "type": "get-alignments",
+        "z": "f2b9d293.541cf",
+        "name": "",
+        "server": "39da5ea1.53c81a",
+        "x": 320,
+        "y": 120,
+        "wires": [
+            [
+                "5b0a65f3.292e94"
+            ]
+        ]
+    },
+    {
+        "id": "ee3d14b2.841648",
+        "type": "post-translation",
+        "z": "f2b9d293.541cf",
+        "name": "",
+        "alignIDname": "UniversAAL_CO_align",
+        "alignIDversion": "3.0.1",
+        "server": "39da5ea1.53c81a",
+        "data": "",
+        "setdata": false,
+        "x": 870,
+        "y": 300,
+        "wires": [
+            [
+                "707fd9da.2957c8"
+            ]
+        ]
+    },
+    {
+        "id": "703f07de.4b7628",
+        "type": "inject",
+        "z": "f2b9d293.541cf",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 120,
+        "wires": [
+            [
+                "eb94dca.74b012"
+            ]
+        ]
+    },
+    {
+        "id": "daae81c6.9c2778",
+        "type": "debug",
+        "z": "f2b9d293.541cf",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 730,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "5b0a65f3.292e94",
+        "type": "json",
+        "z": "f2b9d293.541cf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 530,
+        "y": 120,
+        "wires": [
+            [
+                "daae81c6.9c2778"
+            ]
+        ]
+    },
+    {
+        "id": "707fd9da.2957c8",
+        "type": "json",
+        "z": "f2b9d293.541cf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1070,
+        "y": 300,
+        "wires": [
+            [
+                "28d5d125.e3f476"
+            ]
+        ]
+    },
+    {
+        "id": "28d5d125.e3f476",
+        "type": "json",
+        "z": "f2b9d293.541cf",
+        "name": "",
+        "property": "payload.graphStr",
+        "action": "",
+        "pretty": false,
+        "x": 1090,
+        "y": 380,
+        "wires": [
+            [
+                "3445573d.3496a"
+            ]
+        ]
+    },
+    {
+        "id": "3445573d.3496a",
+        "type": "debug",
+        "z": "f2b9d293.541cf",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1270,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "4f5e571c.0b1ae8",
+        "type": "translator-server",
+        "z": "",
+        "host": "localhost",
+        "port": "4568"
+    },
+    {
+        "id": "39da5ea1.53c81a",
+        "type": "ipsm-server",
+        "z": "",
+        "host": "158.42.188.129",
+        "port": "8888"
+    }
+]

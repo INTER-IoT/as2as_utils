@@ -1,0 +1,45 @@
+{
+    "InterIotGatewayApi": {
+        "label": {
+            "service": "サービス",
+            "method": "メソッド",
+            "host": "ホスト",
+            "header": "ヘッダ",
+            "value": "値",
+            "isQuery": "クエリ"
+        },
+        "status": {
+            "requesting": "要求中"
+        },
+        "parameters": {
+            "version": "version",
+            "getDevice": "getDevice",
+            "deviceUid": "deviceUid",
+            "readDevice": "readDevice",
+            "writeDevice": "writeDevice",
+            "body": "body",
+            "startDevice": "startDevice",
+            "stopDevice": "stopDevice",
+            "deviceStatus": "deviceStatus",
+            "info": "info",
+            "listDevices": "listDevices",
+            "gatewayId": "gatewayId",
+            "status": "status",
+            "info_1": "info_1",
+            "test": "test",
+            "listExecutions": "listExecutions",
+            "addExecution": "addExecution",
+            "removeExecution": "removeExecution",
+            "executionId": "executionId",
+            "listStatements": "listStatements",
+            "addStatement": "addStatement",
+            "removeStatement": "removeStatement",
+            "statementId": "statementId",
+            "listRules": "listRules",
+            "addRule": "addRule",
+            "removeRule": "removeRule",
+            "ruleId": "ruleId",
+            "optionalParameters": "任意項目"
+        }
+    }
+}

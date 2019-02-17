@@ -1,0 +1,713 @@
+[
+    {
+        "id": "446db2e3.28a39c",
+        "type": "tab",
+        "label": "universAAL",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "test",
+        "type": "create-space",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "spaceId": "interiot",
+        "callback": "http://localhost:8181/rec",
+        "server": "85358c05.83c0f8",
+        "x": 490,
+        "y": 100,
+        "wires": [
+            [
+                "4769ee71.fe8fe"
+            ]
+        ]
+    },
+    {
+        "id": "765507fb.ecdde8",
+        "type": "inject",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "test"
+            ]
+        ]
+    },
+    {
+        "id": "4769ee71.fe8fe",
+        "type": "debug",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 950,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "publisherTest",
+        "type": "create-publisher",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "space": "interiot",
+        "publisherId": "sensor99761296A000",
+        "providerinfo": "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . @prefix owl: <http://www.w3.org/2002/07/owl#> . @prefix : <http://ontology.universAAL.org/Context.owl#> . <http://ontology.universAAL.org/InterIoT.owl#providerOfsensor99761296A000> :myClassesOfEvents (    [    a :ContextEventPattern ;   <http://www.w3.org/2000/01/rdf-schema#subClassOf> [       owl:hasValue <http://ontology.universAAL.org/InterIoT.owl#sensor99761296A000> ;     a owl:Restriction ;     owl:onProperty rdf:subject    ]   ]   ) ;  a :ContextProvider ;   :hasType :controller .  :controller a :ContextProviderType .  <http://ontology.universAAL.org/InterIoT.owl#sensor99761296A000> a <http://ontology.universaal.org/PhThing.owl#Device>, <http://ontology.universaal.org/PhThing.owl#PhysicalThing> .",
+        "server": "85358c05.83c0f8",
+        "setproviderinfo": false,
+        "x": 500,
+        "y": 260,
+        "wires": [
+            [
+                "dc725f1f.279748"
+            ]
+        ]
+    },
+    {
+        "id": "454e0184.663018",
+        "type": "inject",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 160,
+        "y": 260,
+        "wires": [
+            [
+                "2ad8d0c1.9b554"
+            ]
+        ]
+    },
+    {
+        "id": "dc725f1f.279748",
+        "type": "debug",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 950,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "rafa",
+        "type": "create-caller",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "space": "interiot",
+        "callerId": "callertest",
+        "server": "85358c05.83c0f8",
+        "x": 490,
+        "y": 1140,
+        "wires": [
+            [
+                "9bde5efe.793e1"
+            ]
+        ]
+    },
+    {
+        "id": "562f51ee.7d07d",
+        "type": "inject",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 160,
+        "y": 1140,
+        "wires": [
+            [
+                "rafa"
+            ]
+        ]
+    },
+    {
+        "id": "9bde5efe.793e1",
+        "type": "debug",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 950,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "35d43405.fddbb4",
+        "type": "inject",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 160,
+        "y": 1200,
+        "wires": [
+            [
+                "596f7d0d.fe291c"
+            ]
+        ]
+    },
+    {
+        "id": "d96a5fc.93b1f2",
+        "type": "debug",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 950,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "df5e24fc.c35548",
+        "type": "call-caller",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "space": "interiot",
+        "caller": "callertest",
+        "serviceRequest": "@prefix ns: <http://ontology.universAAL.org/Workbench.owl#> . @prefix pvn: <http://ontology.universAAL.org/uAAL.owl#> . @prefix ns1: <http://ontology.universAAL.org/ContextHistory.owl#> . @prefix xsd: <http://www.w3.org/2001/XMLSchema#> . @prefix ns2: <http://www.daml.org/services/owl-s/1.1/Process.owl#> . @prefix : <http://www.w3.org/2002/07/owl#> . _:BN000000 a pvn:ServiceRequest ;   pvn:requiredResult [     ns2:withOutput (       [         a ns2:OutputBinding ;         ns2:toParam ns:output1 ;         ns2:valueForm \"\"\"           @prefix : <http://ontology.universAAL.org/uAAL.owl#> .           _:BN000000 a :PropertyPath ;             :thePath (               <http://ontology.universAAL.org/ContextHistory.owl#manages>             ) .           \"\"\"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral>       ]     ) ;     a ns2:Result   ] ;   pvn:requestedService [     a ns1:ContextHistoryService ;     pvn:instanceLevelRestrictions (       [         :hasValue \"1000\"^^xsd:long ;         a :Restriction ;         :onProperty ns1:timestampFrom       ]       [         :hasValue [           a <http://ontology.universAAL.org/Context.owl#ContextEventCHE2>         ] ;         a :Restriction ;         :onProperty ns1:manages       ]     ) ;     pvn:numberOfValueRestrictions \"2\"^^xsd:int   ] . ns:output1 a ns2:Output .",
+        "server": "85358c05.83c0f8",
+        "setserviceRequest": false,
+        "x": 480,
+        "y": 1200,
+        "wires": [
+            [
+                "d96a5fc.93b1f2"
+            ]
+        ]
+    },
+    {
+        "id": "e6f8075.79d35f8",
+        "type": "inject",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 160,
+        "y": 380,
+        "wires": [
+            [
+                "697166dd.771ae"
+            ]
+        ]
+    },
+    {
+        "id": "860595ef.fc06c",
+        "type": "debug",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 950,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "697166dd.771ae",
+        "type": "get-publishers",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "space": "interiot",
+        "server": "85358c05.83c0f8",
+        "x": 500,
+        "y": 380,
+        "wires": [
+            [
+                "13e25537.c4f1cb"
+            ]
+        ]
+    },
+    {
+        "id": "13e25537.c4f1cb",
+        "type": "json",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 750,
+        "y": 380,
+        "wires": [
+            [
+                "860595ef.fc06c"
+            ]
+        ]
+    },
+    {
+        "id": "adae2527.7ae058",
+        "type": "inject",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 160,
+        "y": 660,
+        "wires": [
+            [
+                "c513e733.ea675"
+            ]
+        ]
+    },
+    {
+        "id": "262224ee.38bd24",
+        "type": "debug",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 950,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "7ff6aa1d.4ab0a4",
+        "type": "json",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 750,
+        "y": 660,
+        "wires": [
+            [
+                "262224ee.38bd24"
+            ]
+        ]
+    },
+    {
+        "id": "c513e733.ea675",
+        "type": "get-subscribers",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "space": "interiot",
+        "server": "85358c05.83c0f8",
+        "x": 500,
+        "y": 660,
+        "wires": [
+            [
+                "7ff6aa1d.4ab0a4"
+            ]
+        ]
+    },
+    {
+        "id": "2ad8d0c1.9b554",
+        "type": "function",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "func": "msg.payload=`@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix owl: <http://www.w3.org/2002/07/owl#> .\n@prefix : <http://ontology.universAAL.org/Context.owl#> .\n<http://ontology.universAAL.org/InterIoT.owl#providerOfsensor99761296A000> :myClassesOfEvents (\n   [\n   a :ContextEventPattern ;\n  <http://www.w3.org/2000/01/rdf-schema#subClassOf> [\n      owl:hasValue <http://ontology.universAAL.org/InterIoT.owl#sensor99761296A000> ;\n    a owl:Restriction ;\n    owl:onProperty rdf:subject\n   ]\n  ]\n  ) ;\n a :ContextProvider ;\n  :hasType :controller .\n :controller a :ContextProviderType .\n <http://ontology.universAAL.org/InterIoT.owl#sensor99761296A000> a <http://ontology.universaal.org/PhThing.owl#Device>, <http://ontology.universaal.org/PhThing.owl#PhysicalThing> .`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 260,
+        "wires": [
+            [
+                "publisherTest"
+            ]
+        ]
+    },
+    {
+        "id": "596f7d0d.fe291c",
+        "type": "function",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "func": "msg.payload=`@prefix ns: <http://ontology.universAAL.org/Workbench.owl#> .\n@prefix pvn: <http://ontology.universAAL.org/uAAL.owl#> .\n@prefix ns1: <http://ontology.universAAL.org/ContextHistory.owl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n@prefix ns2: <http://www.daml.org/services/owl-s/1.1/Process.owl#> .\n@prefix : <http://www.w3.org/2002/07/owl#> .\n_:BN000000 a pvn:ServiceRequest ;\n  pvn:requiredResult [\n    ns2:withOutput (\n      [\n        a ns2:OutputBinding ;\n        ns2:toParam ns:output1 ;\n        ns2:valueForm \"\"\"\n          @prefix : <http://ontology.universAAL.org/uAAL.owl#> .\n          _:BN000000 a :PropertyPath ;\n            :thePath (\n              <http://ontology.universAAL.org/ContextHistory.owl#manages>\n            ) .\n          \"\"\"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral>\n      ]\n    ) ;\n    a ns2:Result\n  ] ;\n  pvn:requestedService [\n    a ns1:ContextHistoryService ;\n    pvn:instanceLevelRestrictions (\n      [\n        :hasValue \"1000\"^^xsd:long ;\n        a :Restriction ;\n        :onProperty ns1:timestampFrom\n      ]\n      [\n        :hasValue [\n          a <http://ontology.universAAL.org/Context.owl#ContextEventCHE2>\n        ] ;\n        a :Restriction ;\n        :onProperty ns1:manages\n      ]\n    ) ;\n    pvn:numberOfValueRestrictions \"2\"^^xsd:int\n  ] .\nns:output1 a ns2:Output .`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 1200,
+        "wires": [
+            [
+                "df5e24fc.c35548"
+            ]
+        ]
+    },
+    {
+        "id": "subscribertest",
+        "type": "create-subscriber",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "space": "interiot",
+        "subscriberId": "subscribertest",
+        "callback": "localhost:1880/subscribertest",
+        "pattern": "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . \t    @prefix : <http://www.w3.org/2002/07/owl#> . \t\t    _:BN000000 a <http://ontology.universAAL.org/Context.owl#ContextEventPattern> .",
+        "server": "85358c05.83c0f8",
+        "setpattern": false,
+        "x": 510,
+        "y": 540,
+        "wires": [
+            [
+                "fb1153c9.8dd47"
+            ]
+        ]
+    },
+    {
+        "id": "b43ef61.5ffdd08",
+        "type": "inject",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 160,
+        "y": 540,
+        "wires": [
+            [
+                "d00a07c8.9f82e8"
+            ]
+        ]
+    },
+    {
+        "id": "fb1153c9.8dd47",
+        "type": "debug",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 950,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "7acca8d6.6d27f",
+        "type": "http in",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "url": "/subscribertest",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 820,
+        "wires": [
+            [
+                "9234bc6b.591c68"
+            ]
+        ]
+    },
+    {
+        "id": "9234bc6b.591c68",
+        "type": "debug",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 490,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "531ade32.303a8",
+        "type": "insert-data",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "space": "interiot",
+        "publisher": "sensor99761296A000",
+        "data": "@prefix ns: <urn:org.universAAL.aal_space:test_environment#> . @prefix ns1: <http://ontology.universaal.org/PhThing.owl#> . @prefix pvn: <http://ontology.universAAL.org/uAAL.owl#> . @prefix ns2: <http://ontology.universAAL.org/InterIoT.owl#> . @prefix ns3: <http://ontology.universaal.org/Measurement.owl#> . @prefix ns4: <http://ontology.universAAL.org/Profile.owl#> . @prefix xsd: <http://www.w3.org/2001/XMLSchema#> . @prefix ns5: <http://ontology.universaal.org/HealthMeasurement.owl#> . @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . @prefix ns6: <http://ontology.universAAL.org/Device.owl#> . @prefix : <http://ontology.universAAL.org/Context.owl#> . <urn:org.universAAL.middleware.context.rdf:ContextEvent#_:7f0000017573c131:999> a :ContextEvent ;   pvn:theInvolvedHumanUser ns:Namew ;   rdf:subject ns2:sensor99761296A000 ;   :hasTimestamp \"1510311143841\"^^xsd:long ;   rdf:predicate ns6:hasValue ;   rdf:object ns2:weight1510311143825 . ns2:weight1510311143825 a ns5:PersonWeight ,     ns3:Measurement ,     ns5:HealthMeasurement ;   ns3:value \"59.8\"^^xsd:float . ns2:sensor99761296A000 a <http://ontology.universAAL.org/PersonalHealthDevice.owl#WeighingScale> ,     ns1:Device ,     ns1:PhysicalThing ;   ns6:hasValue ns2:weight1510311143825 . pvn:DefaultContextPublisherinteriot a :ContextProvider ;   :hasType :controller . ns:Namew a ns4:Caregiver ,     ns4:User ,     ns1:PhysicalThing . :controller a :ContextProviderType .",
+        "server": "85358c05.83c0f8",
+        "setdata": false,
+        "x": 480,
+        "y": 980,
+        "wires": [
+            [
+                "4c5fa997.1be3a"
+            ]
+        ]
+    },
+    {
+        "id": "efd1352.87a6548",
+        "type": "inject",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 160,
+        "y": 980,
+        "wires": [
+            [
+                "1f755d6a.fb5abb"
+            ]
+        ]
+    },
+    {
+        "id": "4c5fa997.1be3a",
+        "type": "debug",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 960,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "1f755d6a.fb5abb",
+        "type": "function",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "func": "msg.payload=`@prefix ns: <urn:org.universAAL.aal_space:test_environment#> .\n@prefix ns1: <http://ontology.universaal.org/PhThing.owl#> .\n@prefix pvn: <http://ontology.universAAL.org/uAAL.owl#> .\n@prefix ns2: <http://ontology.universAAL.org/InterIoT.owl#> .\n@prefix ns3: <http://ontology.universaal.org/Measurement.owl#> .\n@prefix ns4: <http://ontology.universAAL.org/Profile.owl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n@prefix ns5: <http://ontology.universaal.org/HealthMeasurement.owl#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix ns6: <http://ontology.universAAL.org/Device.owl#> .\n@prefix : <http://ontology.universAAL.org/Context.owl#> .\n<urn:org.universAAL.middleware.context.rdf:ContextEvent#_:7f0000017573c131:999> a :ContextEvent ;\n  pvn:theInvolvedHumanUser ns:Namew ;\n  rdf:subject ns2:sensor99761296A000 ;\n  :hasTimestamp \"1510311143841\"^^xsd:long ;\n  rdf:predicate ns6:hasValue ;\n  rdf:object ns2:weight1510311143825 .\nns2:weight1510311143825 a ns5:PersonWeight ,\n    ns3:Measurement ,\n    ns5:HealthMeasurement ;\n  ns3:value \"59.8\"^^xsd:float .\nns2:sensor99761296A000 a <http://ontology.universAAL.org/PersonalHealthDevice.owl#WeighingScale> ,\n    ns1:Device ,\n    ns1:PhysicalThing ;\n  ns6:hasValue ns2:weight1510311143825 .\npvn:DefaultContextPublisherinteriot a :ContextProvider ;\n  :hasType :controller .\nns:Namew a ns4:Caregiver ,\n    ns4:User ,\n    ns1:PhysicalThing .\n:controller a :ContextProviderType .`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 980,
+        "wires": [
+            [
+                "531ade32.303a8"
+            ]
+        ]
+    },
+    {
+        "id": "d00a07c8.9f82e8",
+        "type": "function",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "func": "msg.payload=`@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n\t    @prefix : <http://www.w3.org/2002/07/owl#> .\n\t\t    _:BN000000 a <http://ontology.universAAL.org/Context.owl#ContextEventPattern> .`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 540,
+        "wires": [
+            [
+                "subscribertest"
+            ]
+        ]
+    },
+    {
+        "id": "de3a2055.f0a96",
+        "type": "inject",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 160,
+        "y": 600,
+        "wires": [
+            [
+                "subscribertest2"
+            ]
+        ]
+    },
+    {
+        "id": "c6c6c575.e4db6",
+        "type": "debug",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 950,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "subscribertest2",
+        "type": "delete-subscriber",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "space": "interiot",
+        "subscriberId": "subscribertest",
+        "server": "85358c05.83c0f8",
+        "x": 510,
+        "y": 600,
+        "wires": [
+            [
+                "c6c6c575.e4db6"
+            ]
+        ]
+    },
+    {
+        "id": "419926d.df3a7d8",
+        "type": "delete-publisher",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "space": "interiot",
+        "publisherId": "sensor99761296A000",
+        "server": "85358c05.83c0f8",
+        "x": 500,
+        "y": 320,
+        "wires": [
+            [
+                "5f7362a5.9cd1a4"
+            ]
+        ]
+    },
+    {
+        "id": "35e7d304.1cd664",
+        "type": "inject",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 160,
+        "y": 320,
+        "wires": [
+            [
+                "419926d.df3a7d8"
+            ]
+        ]
+    },
+    {
+        "id": "5f7362a5.9cd1a4",
+        "type": "debug",
+        "z": "446db2e3.28a39c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 950,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "50bac505.efbfac",
+        "type": "comment",
+        "z": "446db2e3.28a39c",
+        "name": "Spaces",
+        "info": "",
+        "x": 130,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "cb37c843.433388",
+        "type": "comment",
+        "z": "446db2e3.28a39c",
+        "name": "Publishers",
+        "info": "",
+        "x": 140,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "2789011b.59709e",
+        "type": "comment",
+        "z": "446db2e3.28a39c",
+        "name": "Callers",
+        "info": "",
+        "x": 130,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "cb0586b5.871018",
+        "type": "comment",
+        "z": "446db2e3.28a39c",
+        "name": "Subscribers",
+        "info": "",
+        "x": 150,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "67471c0f.b26944",
+        "type": "comment",
+        "z": "446db2e3.28a39c",
+        "name": "Listen to a subscription",
+        "info": "",
+        "x": 180,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "9cb717e3.54f768",
+        "type": "comment",
+        "z": "446db2e3.28a39c",
+        "name": "Insert data",
+        "info": "",
+        "x": 140,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "85358c05.83c0f8",
+        "type": "universaal-server",
+        "z": "",
+        "host": "localhost",
+        "port": "9000",
+        "username": "admin",
+        "password": "admin",
+        "useAuth": true
+    }
+]

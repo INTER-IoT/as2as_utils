@@ -1,0 +1,28 @@
+{
+  "name": "influxdb-api",
+  "version": "1.0.0",
+  "description": "node-red for the influxdb api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "influxdb"
+  ],
+  "author": "SATRD",
+  "license": "Apache-2.0",
+  "node-red": {
+    "nodes": {
+      "create-database-influxdb": "create-database-influxdb/create-database-influxdb.js",
+      "delete-database-influxdb": "delete-database-influxdb/delete-database-influxdb.js",
+      "select-query-influxdb": "select-query-influxdb/select-query-influxdb.js",
+      "delete-query-influxdb": "delete-query-influxdb/delete-query-influxdb.js",
+      "insert-influxdb": "insert-influxdb/insert-influxdb.js",
+      "influxdb-server": "influxdb-server/influxdb-server.js"
+    }
+  },
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
+}

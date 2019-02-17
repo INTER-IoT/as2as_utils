@@ -1,0 +1,50 @@
+<script type="text/x-red" data-template-name="proton-post-events">
+ <div class="form-row">
+    <label for="node-input-protonConfig"><i class="icon-bookmark"></i> Config</label>
+    <input type="text" id="node-input-protonConfig">
+  </div>
+  <div class="form-row">
+    <label for="node-input-contype"><i class="icon-bookmark"></i> Event format:</label>
+    <select id="node-input-contype">
+      <option value="application/json">Json</option>
+      <option value="text/xml">XML</option>
+      <option value="text/plain">Plain-Text</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label for="node-input-insname"><i class="icon-bookmark"></i> Definition Name</label>
+    <input type="text" id="node-input-insname">
+  </div>
+</script>
+
+
+
+<script type="text/javascript">
+  /*  global RED */
+  RED.nodes.registerType('proton-post-events', {
+    category: 'proton',
+    defaults: {
+      protonConfig: {
+        value: '',
+        required: true,
+        type: 'proton-config',
+      },
+      contype: {
+        value: 'Plain-Text',
+        required: true,
+      },
+      insname: {
+        value: '/ProtonOnWebServer',
+        required: false
+      }
+    },
+    label: function label() {
+      const name = RED.nodes.node(this.protonConfig) ? RED.nodes.node(this.protonConfig).name : '';
+      return `INSTANCE ${this.insname} ${this.contype}`;
+    },
+    inputs: 1,
+    outputs: 1,
+    color: '#a78ccc',
+    icon: 'proton.png',
+  });
+</script>

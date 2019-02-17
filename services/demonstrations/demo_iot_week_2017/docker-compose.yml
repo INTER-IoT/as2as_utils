@@ -1,0 +1,59 @@
+version: '3'
+services:
+  nodered:
+    image: docker.inter-iot.eu/inter-as-node-red
+    volumes:
+      - ./nodered-data:/data
+    networks:
+      main:
+        aliases:
+          - nodered
+    depends_on:
+      - orion
+      - fiware-sth
+      - proton
+    ports:
+      - "1880:1880"
+  mongo:
+    image: mongo:3.2
+    command: --nojournal
+    networks:
+      main:
+        aliases:
+          - mongo
+  orion:
+    image: fiware/orion
+    depends_on:
+      - mongo
+    ports:
+      - "1026:1026"
+    command: -dbhost mongo
+    networks:
+      main:
+        aliases:
+          - orion
+  fiware-sth:
+    image: telefonicaiot/fiware-sth-comet
+    depends_on:
+      - mongo
+      - orion
+    ports:
+      - "8666:8666"
+    environment:
+      - STH_HOST=0.0.0.0
+      - DB_URI=mongo:27017
+    networks:
+      main:
+        aliases:
+          - fiware-sth
+  proton:
+    image: docker.inter-iot.eu/inter-as-proton
+    ports:
+      - "8080:8080"
+    networks:
+      main:
+        aliases:
+          - proton
+  
+networks:
+  main:

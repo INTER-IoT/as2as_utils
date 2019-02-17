@@ -1,0 +1,98 @@
+[
+    {
+        "id": "4a3c8e21.c18b2",
+        "type": "tab",
+        "label": "STH"
+    },
+    {
+        "id": "3f5ef74b.2fb2a8",
+        "type": "inject",
+        "z": "4a3c8e21.c18b2",
+        "name": "Temporizador",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "x": 144,
+        "y": 263,
+        "wires": [
+            [
+                "f27c8db0.9c042"
+            ]
+        ]
+    },
+    {
+        "id": "fa9f0900.729f58",
+        "type": "file",
+        "z": "4a3c8e21.c18b2",
+        "name": "Log",
+        "filename": "log1.txt",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "x": 690,
+        "y": 169,
+        "wires": []
+    },
+    {
+        "id": "f27c8db0.9c042",
+        "type": "function",
+        "z": "4a3c8e21.c18b2",
+        "name": "Falseador ID",
+        "func": "var numero = Math.floor((Math.random() * 2) + 1);\nvar nuevo = { entityID: \"sala\"+numero };\nreturn nuevo;",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 334,
+        "y": 263,
+        "wires": [
+            [
+                "25c1d0b1.4ba8c"
+            ]
+        ]
+    },
+    {
+        "id": "c28202a7.c9a81",
+        "type": "debug",
+        "z": "4a3c8e21.c18b2",
+        "name": "DEBUG LOG",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 710.5,
+        "y": 385,
+        "wires": []
+    },
+    {
+        "id": "25c1d0b1.4ba8c",
+        "type": "fiware-sth-raw",
+        "z": "4a3c8e21.c18b2",
+        "name": "STH",
+        "service": "ed677fd1.a0da3",
+        "entype": "Sala",
+        "attr": "temperatura",
+        "fiwareServer": "habitaciones",
+        "fiwarePath": "/hotel",
+        "lastN": 0,
+        "period": 0,
+        "x": 499,
+        "y": 263,
+        "wires": [
+            [
+                "c28202a7.c9a81"
+            ]
+        ]
+    },
+    {
+        "id": "ed677fd1.a0da3",
+        "type": "fiware-sth-service",
+        "z": "",
+        "name": "STH",
+        "url": "localhost",
+        "port": "7000",
+        "authServerUri": "http://localhost:8000",
+        "authorizePath": "/oauth2/authorize",
+        "tokenPath": "/oauth2/token"
+    }
+]

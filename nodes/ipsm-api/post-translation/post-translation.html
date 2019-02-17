@@ -1,0 +1,67 @@
+<script type="text/x-red" data-template-name="post-translation">
+    <div class="form-row">
+        <label for="node-input-server"><i class="icon-tag"></i> Server</label>
+        <input type="text" id="node-input-server" placeholder="Server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row" id="node-set-alignIDname">
+        <label for="node-input-alignIDname"><i class="icon-tag"></i> AlignID-name</label>
+        <input type="text" id="node-input-alignIDname" placeholder="AlignID-name">
+    </div>
+    <div class="form-row" id="node-set-alignIDversion">
+        <label for="node-input-alignIDversion"><i class="icon-tag"></i> Version</label>
+        <input type="text" id="node-input-alignIDversion" placeholder="Version">
+    </div>
+    <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-setdata"  style="display:inline-block; width:auto; vertical-align:top;">
+        <label for="node-input-setdata" style="width:70%;"><span>Enable manual data input</span></label>
+    </div>
+    <div class="form-row" id="node-set-data">
+        <label for="node-input-data"><i class="icon-tag"></i> Data</label>
+        <input type="text" id="node-input-data" placeholder="Data">
+    </div>   
+</script>
+
+<script type="text/x-red" data-help-name="post-translation">
+    <p>Creates a translation</p>
+    <h3>Inputs</h3>
+    <h3>Outputs</h3>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('post-translation',{
+        category: 'ipsm-api',
+        color: '#c2daf1',
+        defaults: {
+            name: {value:""},
+            alignIDname: {value:""},
+            alignIDversion: {value:""},
+            server: {value:"http://158.42.188.129:8888", type:"ipsm-server", required: true},
+            data: {value:""},
+            setdata: function(){
+                return $('#node-input-setdata').is(":checked");
+            }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "interiot.png",
+        label: function() {
+            return this.name||'POST translation';
+        },
+        oneditprepare: function(){
+            var setstate = function () {
+                if ($('#node-input-setdata').is(":checked")) {
+                    $("#node-set-data").show();
+                } else {
+                    $("#node-set-data").hide();
+                }
+            };
+            $("#node-input-setdata").change(function () { setstate(); });
+            setstate();
+        }
+    });
+</script>

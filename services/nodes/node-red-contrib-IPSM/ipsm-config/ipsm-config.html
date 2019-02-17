@@ -1,0 +1,28 @@
+<script type="text/javascript">
+    RED.nodes.registerType('kafka-broker',{
+        category: 'config',
+        defaults: {
+            host: {value:"127.0.0.1",required:true},
+            port: {value:9092,required:true,validate:RED.validators.number()},
+			useSSL:{value:true, required: true}
+        },
+        label: function() {
+            return this.host+":"+this.port;
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="kafka-broker">
+    <div class="form-row">
+        <label for="node-config-input-host"><i class="icon-bookmark"></i> Host</label>
+        <input type="text" id="node-config-input-host">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-port"><i class="icon-bookmark"></i> Port</label>
+        <input type="text" id="node-config-input-port">
+    </div>
+	<div class="form-row">
+        <label for="node-config-input-useSSL"><i class="icon-tag"></i>Use SSL</label>
+        <input type="checkbox" id="node-config-input-useSSL"  style="display: inline-block; width: auto; vertical-align: top;" placeholder="Use SSL">
+    </div>
+</script>

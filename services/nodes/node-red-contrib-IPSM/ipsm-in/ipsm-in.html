@@ -1,0 +1,43 @@
+<script type="text/javascript">
+    RED.nodes.registerType('ipsm-in',{
+        category: 'IPSM',
+        color: '#E9967A',
+        defaults: {
+            name: {value:""},
+            server: {value:"", type:"kafka-broker", required: true},
+            topics: {value:"", required: true}
+        },
+        inputs:1,
+        outputs:0,
+        icon: "arrow-in.png",
+        align: "right",
+        label: function() {
+            return this.name||"IPSM in";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="ipsm-in">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-server"><i class="icon-tag"></i>Broker</label>
+        <input id="node-input-server" placeholder="Server">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-topics"><i class="icon-tag"></i>Topic(s)</label>
+        <input type="text" id="node-input-topics" placeholder="Topics">
+    </div>
+	
+</script>
+
+<<script type="text/x-red" data-help-name="ipsm-in">
+    <p>A node publishing RDF message to be translated.</p>
+    <p><b>Name</b>  <i>Custom node name</i></p>
+    <p><b>Broker</b>  <i>Configuration of Kafka broker</i></p>
+    <p><b>Topic(s)</b> <i>The topic(s) to which messages are published (comma separated)</i></p>
+</script>
